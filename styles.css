@@ -1,0 +1,105 @@
+
+body {
+	font-family: "Helvetica neu", Helvetica, Arial, sans-serif;
+	color: white;
+	background-color: #491941;
+	line-height: 150%;
+	margin: 0 auto;
+	max-width: 60rem;
+
+}
+
+h1 {
+    text-align: center;
+	font-family: "Helvetica neu", Helvetica, Arial, sans-serif;
+}
+
+.container {
+    position: relative;
+    text-align: center;
+	max-width: 50em;
+	margin: 0 auto;
+}
+
+.containerJust {
+    position: relative;
+    text-align: justified;
+	max-width: 50em;
+	margin: 0 auto;
+}
+
+p {
+  line-height = 150
+  margin: 0 auto;
+  max-width: 50em;
+  text-align: justify;
+  font-family: "Helvetica neu", Helvetica, Arial, sans-serif;
+}
+
+/* To center images */
+
+.imatgeCentrada{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Menu Navegable */
+
+		#nav{
+			border:1px solid #ccc;
+			border-width:1px 0;
+			list-style:none;
+			margin:0;
+			padding:0;
+			text-align:center;
+		}
+		#nav li{
+			position:relative;
+			display:inline;
+		}
+		#nav a{
+			display:inline-block;
+			padding:10px;
+		}
+		#nav ul{
+			position:absolute;
+			/*top:100%; Uncommenting this makes the dropdowns work in IE7 but looks a little worse in all other browsers. Your call. */
+			left:-9999px;
+			margin:0;
+			padding:0;
+			text-align:left;
+		}
+		#nav ul li{
+			display:block;
+		}
+		#nav li:hover ul{
+			left:0;
+		}
+		#nav li:hover a{
+			text-decoration:underline;
+			background:#f1f1f1;
+		}
+		#nav li:hover ul a{
+			text-decoration:none;
+			background:none;
+		}
+		#nav li:hover ul a:hover{
+			text-decoration:underline;
+			background:#f1f1f1;
+		}
+		#nav ul a{
+			white-space:nowrap;
+			display:block;
+			border-bottom:1px solid #ccc;
+		}
+		a{
+			color:#FFFFFF;
+			text-decoration:none;
+			font-weight:bold;
+		}
+		a:hover{
+			text-decoration:underline;
+			background:#f1f1f1;
+		}
+		
