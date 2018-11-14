@@ -5,8 +5,8 @@ body {
 	background-color: #491941;
 	line-height: 150%;
 	margin: 0 auto;
-	max-width: 60rem;
-
+	max-width: 80rem;
+/*se ha cambiado max-width a 80rem en el curso de bioinformatica, el valor por defecto es 60rem  */
 }
 
 h1 {
