@@ -1,0 +1,130 @@
+---
+title: "Download and collect expression data from the web"
+author: "Alex Sanchez"
+date: "November 9, 2018"
+output:
+  html_document:
+    theme: united
+    toc: yes
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(fig.width=10, fig.height=6, cache=FALSE, 
+                      echo=TRUE, warning=FALSE, message=FALSE, results ='markup')
+options(warn=-1, width=100)
+```
+
+```{r installation, eval=FALSE}
+installifnot <- function (packageName){
+ if (!(require(packageName, character.only=TRUE))) {
+    install.packages(packageName)
+  }else{
+    detach(paste ("package", packageName, sep=":"), character.only=TRUE)
+  } 
+}
+installBiocifnot <- function (packageName){
+ if (!(require(packageName, character.only=TRUE))) {
+    source("http://bioconductor.org/biocLite.R")
+   biocLite(packageName)
+  }else{
+    detach(paste ("package", packageName, sep=":"), character.only=TRUE)
+  } 
+}
+installifnot("knitr")
+installifnot("xlsx")
+# installifnot("writexl")
+installBiocifnot("GEOquery")
+
+installifnot("tidyverse")
+```
+
+# The problem
+
+- The  [Gene Expression Omnibus](https://www.ncbi.nlm.nih.gov/geo/), GEO, is a public functional genomics data repository supporting MIAME-compliant data submissions. 
+    + Array and sequence-based data are accepted. 
+    + Tools are provided to help users query and download experiments and curated gene expression profiles.
+
+- We would like to do some statistical analysis on microarray datasets available at GEO.
+    + We wish to download the expression matrix of the arrays (this does seem more or less easy) but 
+    + We also need to download data from other variables (age, sex and above all survival).
+    + We would like to do this for the following datasets: GSE45547, GSE62564, GSE3446; GSE73517 and GSE16476.
+
+# Solving the problem
+
+- This question is easy to solve using two elements:
+    +  **Bioconductor**: an open source project for 'omics' that provides
+        - Data structures: to store complex genomix data
+        - Packages: To manage and analyze many distinct types of data
+    + **Programming**: In order to repeat the same process with distinct datasets we will use a `for` loop an instruction to change the program flow.
+        
+## ExpressionSets
+
+- Bioconductor provides a data structure called `ExpressionSet` intended to store in a single object the distinct data associated with a microarray experiment such as:
+    + Expression matrix
+    + Information on covariates
+    + Information on annotations
+
+```{r}
+library(Biobase)
+data("sample.ExpressionSet")
+```
+
+The distinct components of the dataset can be accessed with their names that can be known with the instruction `SlotNames`.
+```{r}
+slotNames(sample.ExpressionSet)
+experimentData(sample.ExpressionSet)
+```
+The two most commonly used functions for accessing data are:
+-`exprs` that provides the expression matrix.
+-`pData` that provides the covariables.
+
+```{r}
+pData(sample.ExpressionSet)
+X <- exprs(sample.ExpressionSet)
+dim(X)
+head(X)
+```
+
+## The `GEOquery` package
+
+- `GEOquery` is a package that allows downloading a whole study from GEO with a simple instruction.
+- The data is downloaded as an `ExpressionSet`
+- Help can be obtained typing `? getGEO` after loading the package.
+
+```{r eval=FALSE}
+gse <- getGEO('GSE10')
+# Returns a list, so look at first item
+eset<- gse[[1]]
+class(eset)
+pData(eset)
+x<- exprs(eset)
+dim(x)
+head(x)
+```
+
+## Downloading all datasets at once
+
+- With these concepts in mind it is possible to write a simple loop that     + Downloads each dataset
+    + Extract the covariates from each dataset
+    + Write it into a distinct sheet of an excel spreadsheet.
+    
+  
+```{r eval=FALSE}
+require(GEOquery)
+listOfStudies <- c("73517", "16476")# c("62564", "3446") # c("45547")
+for (studyID in listOfStudies){
+  gse <- getGEO(paste0("GSE",studyID), GSEMatrix =TRUE, AnnotGPL=TRUE)
+  eset <- gse[[1]]
+  phenoDat <- pData(eset)
+  require(xlsx)
+  write.xlsx(phenoDat, file="phenoData.xlsx", sheetName=paste0("GSE",studyID), append=TRUE)
+}
+```
+
+
+        
+
+
+
