@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
   <head>
@@ -11,7 +12,7 @@
     <!-- Import GIMP's stylesheets
     <link rel="stylesheet" type="text/css" href="./GIMPcss/page.css">    <link rel="stylesheet" type="text/css" href="./GIMPcss/downloads.css">    <link rel="stylesheet" type="text/css" href="./GIMPcss/normalize.css">    <link rel="stylesheet" type="text/css" href="./GIMPcss/grid.css">    <link rel="stylesheet" type="text/css" href="./GIMPcss/gimp.css">    <link rel="stylesheet" type="text/css" href="./GIMPcss/font-awesome.min.css">    <link rel="stylesheet" type="text/css" href="./GIMPcss/pygments-default.css">    <link rel="stylesheet" href="./GIMPcss/tipuesearch.css">	-->
     <!-- import jQuery --> <base target="_blank">
-    <meta name="author" content="Miriam Mota" >
+    <meta name="author" content="Alex Sanchez" >
     <meta name="description" content="A static web page for the annual UEB Bioinformatics Course to be taught at Campus VH">
     <meta name="keywords" content="Bioinformatics, databases and omics analysis">
   </head>
@@ -117,31 +118,25 @@ Les sessions es faran els dies 19, 21, 26, 28 de novembre  i 3 de desembre de 20
       <p></p>
       
       <ol>
-   <!-- <li><a href="https://github.com/uebvhir/Course_2018_Bioinformatics/raw/master/Dia2.%20Sessio%202/presentation_galaxy2.pdf">Presentation</a></li>
-         -->
-      </ol>
-      
-      
-      <ol>
-   <!-- <li><a href="https://github.com/ASPteaching/RforDataScience/blob/master/R4DataScience-0-Presentation.pdf">Presentation</a></li>
-         -->
-      </ol>
+   <li><a href="https://github.com/uebvhir/Course_2018_Bioinformatics/raw/master/Dia2_Session2/presentation_galaxy3.pdf">Presentation</a></li>
+     </ol>    
       <p></p>
 <div class="containerJust">
         <h4><b>Sessió 3.1</b>: Anàlisis de significació biològica. Mètodes per a l’anàlisi de llistes de gens</h4>
       </div>
       <p></p>
       <ol>
-   <!-- <li><a href="https://github.com/ASPteaching/RforDataScience/blob/master/R4DataScience-0-Presentation.pdf">Presentation</a></li>
-         -->
+   	<li><a href="https://github.com/alexsanchezpla/AnIntro2FunctionalAnalysis/blob/master/Slides/Intro2PathwayAnalysis.odp?raw=true">Introduction to pathway analysis</a></li>
+         
       </ol>
       <div class="containerJust">
  <h4><b>Sessió 3.2</b>:  Eines per a l'anàlisi de significació biològica</h4>
       </div>
       <p></p>
       <ol>
-   <!-- <li><a href="https://github.com/ASPteaching/RforDataScience/blob/master/R4DataScience-0-Presentation.pdf">Presentation</a></li>
-         -->
+   <li><a href="Bioinformatics-Course/ORA_GSEA-lab/Gene_Lists_Analysis__ORA_GSEA__lab.html">Gene Enrichment Analysis with g:Profiler</a></li>
+   <li><a href="Bioinformatics-Course/ORA_GSEA-lab/datasets/mesenvsimmuno_mesenonly_RNAseq_gprofiler.txt">mesenvsimmuno_mesenonly_RNAseq_gprofiler.txt</a></li>
+    
       </ol>
 	<p></p>
 <div class="containerJust">
