@@ -43,10 +43,12 @@
            <li><a href="https://cdn.staticaly.com/gh/uebvhir/Course_Basic_Statistics_2019/master/Desc_BasicStatistics_2019.html" target="_blank"> 
               Basic Statistics for Biomedical Research</li></a>
                   
- 
-          <li><a href="pindoles_estadistiques.html" target="_blank"> 
-              Píndola Estadístiques: Xerrades de divulgació sobre els mètodes estadístics </li></a>
-   
+         
+            <!--<li><a href="https://uebvhir.github.io/Pindola_26042019..html" target="_blank"> 
+              Píndola 26/04/2019.Us de REDCap per a la recollida i tractament de dades en la Recerca al Campus de Vall d’Hebron </li></a>-->
+          <li><a href="https://cdn.staticaly.com/gh/uebvhir/Pindoles/master/Pindola_260419_Recap/Pindola_26042019..html" target="_blank"> 
+              Píndola 26/04/2019.Us de REDCap per a la recollida i tractament de dades en la Recerca al Campus de Vall d’Hebron </li></a>
+          
         
         <li><a href="https://cdn.staticaly.com/gh/uebvhir/Sessions-Formatives/master/20190524_Sessio_Otorrino_estbasica.pdf" target="_blank"> 
               Sessió formativa Servei Otorrino</li></a>
