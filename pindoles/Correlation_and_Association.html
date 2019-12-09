@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>.</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="." />
+    <script src="libs/kePrint/kePrint.js"></script>
+    <link rel="stylesheet" href="mycss.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# .
+### .
+
+---
+
+
+&lt;!-- edit name1 and name2 in the YAML above --&gt;
+
+
+
+
+# Statistics and Bioinformatics Unit (UEB)
+
+&lt;img src="images/uebvhir.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+.center[
+.font150[
+[http://ueb.vhir.org](http://ueb.vhir.org)
+]
+]
+---
+
+# Outline of the talk
+
+- Why this pill (some examples)
+- Some basic ideas we have all heard about
+- What about significance (p-values)
+- Correlation false-friends
+    + _Regression, Relation, Agreement, Causation_ # Spurious, Ecological  phallacy,
+- Moving forward 
+    + More dimensions, More methods ...
+- Wrap-up
+
+---
+
+# Motivation (_Why this pill_)
+
+- Everybody uses the term correlation, in science and normal life.
+
+
+&lt;img src="images/correlationTitles.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Motivation (_Why this pill_)
+
+.pull-left[
+
+- The concept, however is often misused or abused.
+    - Correlation used instead of agreement
+    - Regression used when there is no dependent/independent variables
+    - Significance applied when assumptions do not hold
+    - ...
+]
+
+.pull-right[
+&lt;img src="images/motivation2.png" width="90%" style="display: block; margin: auto;" /&gt;
+]
+
+.center[
+ __It may be worth to review a few concepts!__
+]
+
+---
+
+# But what is correlation?
+
+- In statistics, __dependence__ or __association__ is _any statistical relationship, whether causal or not, between two (random) variables_. 
+- In the broadest sense __correlation__ is _any statistical association_, though 
+- it commonly refers to _the degree to which a pair of variables are linearly related_ (Pearson correlation coefficient).
+
+---
+
+# Association can take many forms
+
+&lt;img src="images/Correlation_examples1.WKP.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+
+---
+# Example:  Mortality &amp; Latitude 
+
+&lt;img src="Correlation_and_Association_files/figure-html/unnamed-chunk-5-1.png" width="50%" style="display: block; margin: auto;" /&gt;
+- Mortality Rate [per 10 Million (107)] of White Males Due to Malignant Melanoma of the Skin for the Period 1950–1959 by State and Some Related Variables
+
+---
+# Example:  Exercise &amp; `\(O_2\)`
+
+&lt;img src="Correlation_and_Association_files/figure-html/unnamed-chunk-6-1.png" width="50%" style="display: block; margin: auto;" /&gt;
+- Exercise Data for Healthy Active Males
+---
+
+# Example:  ATP consumption
+
+&lt;img src="Correlation_and_Association_files/figure-html/unnamed-chunk-7-1.png" width="50%" style="display: block; margin: auto;" /&gt;
+- Erythrocyte Adenosine Triphosphate (ATP) Levelsa in Youngest and Oldest Sons in 17 Families Together with Age (Before Storage)
+
+---
+
+# Reviewing correlation coefficients 
+
+&lt;h2&gt; What's in my toolbox?&lt;/h2&gt;
+
+- Pearson (linear) correlation coefficient
+- Sperman (ranks) correlation coefficient
+- Kendall's tau
+- Intraclass correlation coefficients
+- Many other: Distance correlation, Mutual Information, etc.
+
+---
+
+# Pearson correlation coefficient
+
+- Most commonly used correlation coefficient
+- Measures the degree of __linear__ relation between a pair of _quantitative_ variables.
+- It takes values between +1 and −1, where 1 is total positive linear correlation, 0 is no linear correlation, and −1 is total negative linear correlation. 
+
+&lt;img src="images/PearsonCCValues.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Pearson CC measures linear association
+
+- Pearson CC changes with noise
+- It is not affected by changes in slope
+- If relation is not linear it becomes useless
+
+&lt;img src="images/Correlation_examples2.WKP.png" width="90%" style="display: block; margin: auto;" /&gt;
+---
+
+# Pearson CC examples
+
+&lt;img src="Correlation_and_Association_files/figure-html/unnamed-chunk-10-1.png" style="display: block; margin: auto;" /&gt;
+
+
+---
+# Spearman correlation
+
+
+
+- If the relation is _monotone_ or the variables are in an _ordinal scale_ use _Spearman Ranks Correlation Coefficient_ instead of Pearson's.
+
+.pull-left[
+&lt;table class="table table-striped" style="font-size: 11px; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; age &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; percFat &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 23 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.5 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 27 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 17.8 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 28 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 18.7 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 29 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 23.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 9 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 30 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 25.2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 33 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 27.9 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 12 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 36 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 32.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 6 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 39 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 31.4 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 7 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 41 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 25.9 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 8 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 45 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 34.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 10 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 50 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 31.1 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 11 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 53 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 34.7 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 13 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 54 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 29.1 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 14 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 56 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 32.5 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 15 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 57 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 30.3 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 16 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 58 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 33.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 17 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 59 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 33.8 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 18 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 60 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 31.5 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 19 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 61 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 34.5 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+
+.pull-right[
+
+![](Correlation_and_Association_files/figure-html/unnamed-chunk-13-1.png)&lt;!-- --&gt;
+Based on - Maze et al (1984).
+]
+
+
+---
+
+# Relation is monotonic, but not linear
+
+&lt;img src="Correlation_and_Association_files/figure-html/unnamed-chunk-14-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Spearman CC is based on __ranks__
+
+.pull-left[
+&lt;table class="table table-striped" style="font-size: 11px; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; age &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; rankAge &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; percFat &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; rankFat &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 23 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 27 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 17.8 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 28 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 18.7 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 29 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 23.0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 9 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 30 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 25.2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 33 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 27.9 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 7 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 12 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 36 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 7 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 32.0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 13 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 6 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 39 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 31.4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 7 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 41 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 25.9 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 8 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 45 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 34.0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 17 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 10 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 50 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 31.1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 11 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 53 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 12 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 34.7 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 19 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 13 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 54 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 13 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 29.1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 14 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 56 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 14 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 32.5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 14 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 15 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 57 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 15 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 30.3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 16 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 58 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 16 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 33.0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 15 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 17 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 59 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 17 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 33.8 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 16 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 18 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 60 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 18 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 31.5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 12 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 19 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 61 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 19 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 34.5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 18 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+.pull-right[
+
+__Spearman CC = Pearson CC computed on ranks__
+
+
+```r
+cor(age,percFat, 
+    method = "spearman")
+```
+
+```
+## [1] 0.777193
+```
+
+```r
+cor(rankAge, rankFat,
+    method = "pearson")
+```
+
+```
+## [1] 0.777193
+```
+]
+
+---
+# What about Kendall's tau
+
+- Kendall's tau is a correlation coefficient based on ranks
+- That is, it can be seen as _an alternative to Spearman CC_
+- Indeed the reason why/when we should choose Spearman or Kendall is not clearly documented
+.center[
+[https://stats.stackexchange.com/questions/3943/kendall-tau-or-spearmans-rho](https://stats.stackexchange.com/questions/3943/kendall-tau-or-spearmans-rho)
+]
+---
+
+# So what? Pearson or Spearman?
+
+- Start with a plot
+- If the relation ship is _approximately_ linear you can use Pearson CC.
+- If the relation is not linear but it is _monotonically increasing_ or _monotonically decreasing_ you better use Spearman CC.
+
+- The _measurement scale_ is also a criteria 
+
+    - Use Pearson if the data is in an "interval" or "quotient" scale
+    - Use Spearman if the data are on an "ordinal" scale
+
+---
+
+# Review : Measurement scales
+
+&lt;img src="images/summary-of-data-types-and-scales.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+
+
+# Significance of correlation
+
+&lt;br&gt;
+
+&lt;br&gt;
+
+.pull-left[
+- Common correlation analysis report
+    - An estimate of correlation
+    - A least squares straight line
+    - A significance p-value
+    
+- Is everything appropriate?
+]
+
+.pull-right[
+&lt;img src="images/inferenceExample1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# Can we make inferences on correlation?
+
+.pull-left[
+
+- Statistical inference deals with inferring properties in population characteristics from representative samples.
+
+&lt;img src="images/introduction-to-statistical-inference.jpg" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+
+When dealing with correlation it means answering questions such as:
+
+- What is the estimated correlation coefficient of the population?
+    - How precise is this estimate?
+- Is there any correlation in the population, or is the sample correlation just the luck of the draw?
+
+]
+
+---
+
+# Can we put a p-value on _r_?
+
+- It is possible to make some inferences on the population correlation coefficient, `\(\rho\)`.
+
+- It is not so straightforward as computing the sample correlation coefficient `\(r\)`.
+
+- For the p-value to be "valid" some assumptions must hold:
+    - We have continuous variables in an interval or quotient scale, with no outliers.
+    - Data comes from a simple random sample
+    - From a bivariate normal distribution
+    
+- If these assumptions hold it is possible to tests the hypotheses:
+$$
+H_0:\, \rho=0,\mbox{ vs } \rho \neq 0.
+$$
+---
+
+# Example: Body fat and measures 
+
+
+
+&lt;img src="Correlation_and_Association_files/figure-html/unnamed-chunk-21-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;br&gt;
+Source: [ "http://wiki.stat.ucla.edu/socr/index.php/SOCR_Data_BMI_Regression"]( "http://wiki.stat.ucla.edu/socr/index.php/SOCR_Data_BMI_Regression")
+
+---
+
+# P-values for correlations
+
+.pull-left[
+&lt;br&gt;
+&lt;br&gt;
+&lt;table class="table table-striped" style="font-size: 12px; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; BodyFat &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Age &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Height &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; KneeCir &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; AnkleCi &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; BodyFat &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.084 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.148 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.060 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.488 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Age &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.321 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.222 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.636 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.160 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Height &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.271 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.230 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.008 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; KneeCir &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.347 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.090 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.476 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; AnkleCi &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.132 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.263 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.648 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.621 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.000 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+- Correlation matrix (below) with 
+- significance values (above)
+]
+
+.pull-right[
+![](Correlation_and_Association_files/figure-html/unnamed-chunk-23-1.png)&lt;!-- --&gt;
+- Correlation depicted by circle size
+- Significance: Values above threshold left blank
+]
+
+---
+
+# What does this test tell?
+
+- Correlation significance test __tells nothing about how big the population correlation is__.
+- It only informs about if __it can be considered to be distinct than zero__.
+- Besides this it can only be considered valid if the assumptions hold.
+- And, if it were not enough, results are __very sensitive to sample size__
+    - Something not significant for small sample size.
+    - Becomes significant as sample size increases.
+- In summary: _Too much effort for a very small prize?_
+
+
+## Confidence intervals for `\(\rho\)`
+
+- A better alternative: __Compute confidence intervals for the correlation coefficient__.
+    - Again validity of assumptions is an additional difficulty
+    - However it is possible to obtain good approximations based on computational intensive approximations such as the __bootstrap__.
+
+
+---
+
+# Correlation coefficient CI example
+
+
+&lt;img src="images/Correlation-coefficient-with-respective-95-confidence-interval-of-size-assortment.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+- Correlation coefficient with respective 95% confidence interval of mean body surface affected by a chronic dermathological disease. 
+- Correlation coefficients are given for each year and are separated by work type. 
+- The black dotted line represents zero correlation. Significant correlations are marked with `\(*\)` P &lt; 0.05, `\(**\)` P &lt; 0.01 and `\(***\)` P &lt; 0.001. 
+
+---
+
+# False friends (1): Regression
+
+- Correlation and regression are often presented together.
+- They are related, but they are not the same:
+
+&lt;img src="images/correlationVSregression.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# One correlation vs two regressions
+
+&lt;img src="images/correlationVSregressions.jpg" width="100%" style="display: block; margin: auto;" /&gt;
+
+
+
+---
+
+# False friends (2): Class comparison
+
+- Is there correlation between disease and expression of a certain biomarker gene?
+    - OK to compute Pearson CC  between `Expression` and `Apoptosis` and say "There is"/"There isn't"
+    - Not OK to test differences between `HIGH` and `LOW` and say "There is"/"There isn't"
+    
+.pull-left[
+&lt;table class="table table-striped" style="font-size: 10px; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:right;"&gt; Expression &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Apoptosis &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Disease_cat &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.20 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; LOW &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 7 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.40 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.33 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; LOW &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 8 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.70 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; HIGH &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 8 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.65 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 9 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.81 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; HIGH &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 11 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.90 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; HIGH &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.32 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; LOW &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 7 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.45 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 12 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.84 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; HIGH &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 10 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.77 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; HIGH &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.24 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; LOW &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.29 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; LOW &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 7 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.51 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+.pull-right[
+&lt;img src="Correlation_and_Association_files/figure-html/unnamed-chunk-30-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# FF (3): Correlation is not causation
+
+.pull-left[
+&lt;img src="images/correlationNOTcausation1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+.pull-right[
+- Correlation informs about the association between two variables
+- __It cannot tell anything__ about if changes in the values of one variable are due to changes in the values of the other variable.
+]
+
+---
+# FF (4): Correlation is not agreement
+
+- Correlation and agreement are similar and related concepts but, _although similar and related, __they represent completely different notions of association__. 
+    - Agreement appears when we wish to compare two methods of measuring _the same_ thing.
+    - Correlation assumes that we are measuring variables that may be related, but  represent _different_ constructs.
+    
+
+- Examples: 
+    - Lung function measured using a spirometer (expensive, accurate) or peak flowmeter (cheap, less accurate).
+    - Two devices (oropharyngeal and conventional) used to mesured acidity (pH) in the esophagus as a marker of reflux.
+
+---
+
+# FF (4): Correlation is not agreement
+
+.pull-left[
+- _Aorta pulsatility_ is measured in week 0 and week 12 in the same body location in stable patients.
+
+- Both variables are measuring the same (AP) therefore the correlation does not make sense.
+
+- Instead we compute a _concordance coefficient_ (intraclass correlation) which accounts for the repeted measurement effect.
+]
+
+.pull-right[
+&lt;img src="images/agreement1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+---
+
+# FF (4): Correlation is not agreement
+
+&lt;img src="images/agreement2.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+# FF (4): Correlation is not agreement 
+
+&lt;img src="images/agreement3.png" width="90%" style="display: block; margin: auto;" /&gt;
+---
+
+# Going multivariate
+
+- What about correlation when we deal with several variables simultaneously?
+- Obvious step 1: Multiple correlations: every variable vs every other variable.
+
+
+```
+##         BdyFt Age   Heght KneCr AnklC
+## BodyFat  1.00                        
+## Age      0.32  1.00                  
+## Height  -0.27 -0.23  1.00            
+## KneeCir  0.35 -0.09  0.48  1.00      
+## AnkleCi -0.13 -0.26  0.65  0.62  1.00
+```
+&lt;br&gt;
+
+- A good idea: adjust correlation between any 2 variables removing what is explained by their correlation with other variables.&gt;
+
+
+```
+##         BdyFt Age   Heght KneCr AnklC
+## BodyFat  1.00                        
+## Age      0.28  1.00                  
+## Height  -0.37  0.02  1.00            
+## KneeCir  0.60 -0.09  0.32  1.00      
+## AnkleCi -0.23 -0.11  0.35  0.51  1.00
+```
+
+
+---
+
+# Conclusions and recap
+
+- Correlation is a useful and informative tool to quantify the relation between pairs of variables.
+- Distinct situations may require distinct approaches
+- If certain assumptions hold, it is possible to compute a p-value for the CC
+    - Although it only informs if there is _any_ correlation
+    - To estimate _how big_ the correlation is, better use confidence intervals.
+- Correlation has many _false friends_
+    - Regression, Agreement, Causation, Spureous, ....
+    - Learn to know them and to know when to use them.
+- Correlation can be extended in many directions
+    - More coefficients
+    - More dimensions
+    
+---
+
+# References
+- Aggarwal, R., &amp; Ranganathan, P. (2016). Common pitfalls in statistical analysis: The use of correlation techniques. Perspectives in Clinical Research, 7(4), 187. https://doi.org/10.4103/2229-3485.192046
+- Asuero, A. G., Sayago, A., &amp; González, A. G. (2006). The Correlation Coefficient: An Overview. Critical Reviews in Analytical Chemistry, 36(1), 41–59. https://doi.org/10.1080/10408340500526766
+- Bland, J. M., &amp; Altman, D. G. (n.d.). STATISTICAL METHODS FOR ASSESSING AGREEMENT BETWEEN TWO METHODS OF CLINICAL MEASUREMENT.
+https://doi.org/10.1016/j.gaitpost.2017.06.014
+- Kamel, H. F. M., &amp; Al-Amodi, H. S. A. B. (2017, August 1). Exploitation of Gene Expression and Cancer Biomarkers in Paving the Path to Era of Personalized Medicine. Genomics, Proteomics and Bioinformatics. Beijing Genomics Institute. https://doi.org/10.1016/j.gpb.2016.11.005
+- Kim, H. Y., Cha, Y. H., Chun, Y. S., &amp; Shin, H. S. (2017). Correlation of the torsion values measured by rotational profile, kinematics, and CT study in CP patients. Gait &amp; Posture, 57, 241–245. 
+- Xu, W., Hou, Y., Hung, Y. S., &amp; Zou, Y. (2012). A comparative analysis of Spearman’s rho and Kendall’s tau in normal and contaminated normal models. Signal Processing, 93, 261–276. https://doi.org/10.1016/j.sigpro.2012.08.005
+
+# QUESTIONS?
+
+&lt;img src="images/questions.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+
+![](Correlation_and_Association_files/figure-html/unnamed-chunk-38-1.pdf)&lt;!-- --&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
