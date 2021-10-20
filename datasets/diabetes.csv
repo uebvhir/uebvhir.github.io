@@ -1,0 +1,150 @@
+numpacie,mort,tempsviu,edat,bmi,edatdiag,tabac,sbp,dbp,ecg,chd
+1,Vivo,12.4,44,34.2,41,No fumador,132,96,Normal,No
+2,Vivo,12.4,49,32.6,48,Fumador,130,72,Normal,No
+3,Vivo,9.6,49,22.0,35,Fumador,108,58,Normal,Si
+4,Vivo,7.2,47,37.9,45,No fumador,128,76,Frontera,Si
+5,Vivo,14.1,43,42.2,42,Fumador,142,80,Normal,No
+6,Vivo,14.1,47,33.1,44,No fumador,156,94,Normal,No
+7,Vivo,12.4,50,36.5,48,No fumador,140,86,Frontera,Si
+8,Vivo,14.2,36,38.5,33,Fumador,144,88,Normal,No
+9,Vivo,12.4,50,41.5,47,Ex fumador,134,78,Normal,Si
+10,Vivo,14.5,49,34.1,45,No fumador,102,68,Normal,No
+11,Vivo,12.4,50,39.5,48,Fumador,142,84,Normal,No
+12,Vivo,10.8,54,42.9,43,No fumador,128,74,Normal,No
+13,Muerto,10.9,42,29.8,36,Fumador,156,86,Normal,No
+14,Vivo,10.3,44,33.2,43,Fumador,102,58,Normal,No
+15,Muerto,13.6,40,27.5,26,Fumador,146,98,Normal,No
+16,Vivo,11.9,48,25.3,48,No fumador,120,68,Frontera,Si
+17,Vivo,12.5,50,31.6,44,Ex fumador,142,76,Normal,No
+18,Vivo,5.9,47,26.3,38,Ex fumador,144,82,Normal,No
+19,Vivo,12.4,38,32.4,36,Fumador,150,98,Frontera,Si
+20,Vivo,14.1,35,47.0,33,Ex fumador,134,78,Normal,No
+21,Muerto,9.8,51,26.5,47,Fumador,130,76,Normal,No
+22,Vivo,7.2,40,43.9,34,No fumador,122,92,Normal,No
+23,Vivo,3.5,54,32.3,52,Ex fumador,132,80,Normal,No
+24,Vivo,0.0,53,34.5,47,Fumador,150,88,Anormal,Si
+25,Muerto,12.1,45,18.9,40,Ex fumador,134,98,Normal,No
+26,Vivo,1.9,41,32.0,31,Ex fumador,142,90,Frontera,Si
+27,Vivo,8.6,34,33.9,30,Fumador,124,66,Normal,No
+28,Vivo,14.0,38,23.7,28,No fumador,102,60,Normal,No
+29,Vivo,14.3,43,24.8,43,No fumador,134,80,Normal,No
+30,Vivo,12.4,45,26.6,41,Fumador,118,66,Frontera,Si
+31,Vivo,12.4,40,39.2,35,Fumador,192,108,Normal,No
+32,Vivo,14.4,44,32.7,36,Fumador,122,78,Normal,No
+33,Vivo,14.2,48,33.5,43,Ex fumador,122,92,Normal,No
+34,Vivo,14.5,51,31.2,49,Fumador,112,74,Normal,No
+35,Vivo,12.4,36,24.2,30,Fumador,142,90,Normal,No
+36,Vivo,14.3,52,31.6,48,Ex fumador,152,96,Normal,No
+37,Muerto,13.7,41,30.7,39,Fumador,112,74,Normal,No
+38,Vivo,13.4,49,28.0,35,Fumador,118,84,Normal,No
+39,Vivo,12.5,44,32.0,29,No fumador,152,88,Normal,No
+40,Vivo,14.4,37,32.7,36,Fumador,136,88,Normal,No
+41,Vivo,12.6,51,24.2,42,Fumador,134,90,Normal,No
+42,Vivo,13.8,47,18.7,42,No fumador,130,78,Frontera,Si
+43,Vivo,14.0,45,25.6,36,No fumador,108,72,Normal,No
+44,Vivo,6.8,38,22.8,27,Fumador,126,66,Frontera,Si
+45,Vivo,12.4,35,30.1,33,No fumador,132,78,Normal,No
+46,Vivo,12.9,50,27.7,49,Ex fumador,144,88,Normal,No
+47,Vivo,8.9,53,27.6,49,Fumador,126,68,Normal,No
+48,Vivo,12.4,48,28.1,47,Ex fumador,128,70,Normal,No
+49,Vivo,14.5,40,31.7,37,Fumador,132,82,Normal,No
+50,Vivo,13.0,43,26.1,42,Fumador,128,80,Normal,No
+51,Vivo,13.4,54,30.8,54,Ex fumador,142,80,Frontera,Si
+52,Vivo,10.6,52,36.9,50,Ex fumador,132,80,Frontera,Si
+53,Vivo,13.9,69,24.2,63,Ex fumador,148,78,Normal,No
+54,Vivo,16.9,38,27.5,26,Fumador,170,100,Normal,No
+55,Vivo,3.6,50,27.3,44,Ex fumador,140,90,Normal,No
+56,Vivo,10.2,64,30.1,58,No fumador,138,76,Frontera,Si
+57,Vivo,15.7,44,36.1,41,No fumador,112,78,Normal,No
+58,Vivo,12.0,38,43.1,39,Fumador,140,78,Normal,No
+59,Muerto,6.7,62,34.6,58,No fumador,138,78,Anormal,Si
+60,Vivo,11.6,47,39.0,45,No fumador,130,82,Normal,No
+61,Muerto,2.0,78,28.7,77,No fumador,178,862,Normal,No
+62,Vivo,10.2,49,28.2,43,Fumador,158,80,Normal,No
+63,Vivo,3.6,63,25.1,46,Ex fumador,168,88,Anormal,Si
+64,Vivo,15.4,71,26.0,59,No fumador,146,88,Normal,No
+65,Vivo,11.3,51,32.0,49,Fumador,128,76,Normal,No
+66,Vivo,10.3,59,28.1,57,Ex fumador,132,76,Normal,Si
+67,Vivo,5.8,50,26.1,49,Ex fumador,154,80,Normal,No
+68,Muerto,8.0,66,45.3,49,No fumador,154,92,Normal,No
+69,Vivo,14.6,42,30.0,41,No fumador,122,80,Normal,No
+70,Vivo,11.4,40,35.7,36,Fumador,144,76,Frontera,Si
+71,Vivo,7.2,67,28.1,61,No fumador,178,96,Normal,No
+72,Vivo,5.5,86,32.9,61,No fumador,162,60,Normal,No
+73,Vivo,11.1,52,37.6,46,Ex fumador,142,80,Normal,No
+74,Vivo,16.5,42,43.4,37,No fumador,120,76,Normal,No
+75,Vivo,10.9,60,25.4,60,No fumador,124,64,Normal,No
+76,Vivo,2.5,75,49.7,57,Ex fumador,174,82,Frontera,Si
+77,Muerto,10.8,81,35.2,81,No fumador,142,88,Normal,No
+78,Vivo,4.7,60,37.3,39,No fumador,160,78,Normal,No
+79,Muerto,5.5,60,26.0,42,No fumador,122,68,Anormal,Si
+80,Vivo,4.5,63,21.8,60,Fumador,162,98,Normal,Si
+81,Vivo,9.0,62,18.2,43,No fumador,132,72,Frontera,Si
+82,Vivo,6.8,57,34.1,41,Fumador,116,60,Anormal,Si
+83,Muerto,3.6,71,25.6,54,Ex fumador,152,84,Anormal,Si
+84,Vivo,12.1,58,35.1,45,No fumador,144,68,Frontera,Si
+85,Vivo,8.1,42,32.5,28,Ex fumador,98,68,Frontera,Si
+86,Vivo,11.1,45,44.1,40,No fumador,138,76,Normal,Si
+87,Muerto,7.0,66,29.7,59,Ex fumador,138,78,Normal,No
+88,Vivo,1.5,61,29.2,54,No fumador,184,802,Normal,No
+89,Vivo,11.7,48,25.2,30,Fumador,158,98,Normal,No
+90,Vivo,0.3,82,25.3,50,No fumador,176,96,Normal,Si
+91,Vivo,13.6,35,25.8,34,Ex fumador,118,72,Normal,No
+92,Vivo,15.0,57,33.7,57,Fumador,172,98,Normal,No
+93,Vivo,11.2,56,39.5,55,Ex fumador,182,100,Normal,Si
+94,Vivo,3.0,49,32.9,48,No fumador,144,90,Frontera,Si
+95,Vivo,13.7,50,37.1,50,No fumador,142,80,Normal,No
+96,Vivo,10.2,53,35.3,53,Fumador,154,76,Normal,No
+97,Vivo,12.2,71,29.3,70,No fumador,122,60,Normal,No
+98,Vivo,1.1,55,22.1,33,Fumador,222,102,Frontera,Si
+99,Vivo,16.3,69,23.6,43,No fumador,150,80,Normal,Si
+100,Vivo,6.7,59,26.1,55,Fumador,142,66,Normal,No
+101,Vivo,15.4,47,32.5,45,Fumador,128,82,Normal,No
+102,Muerto,7.6,75,29.8,67,No fumador,122,76,Anormal,Si
+103,Muerto,3.6,80,24.4,80,Ex fumador,162,88,Frontera,Si
+104,Vivo,11.5,57,26.3,54,No fumador,172,82,Frontera,Si
+105,Vivo,13.5,52,30.8,46,Fumador,132,70,Normal,Si
+106,Vivo,10.6,48,29.4,46,No fumador,112,68,Normal,No
+107,Muerto,6.5,57,29.1,47,Ex fumador,138,92,Frontera,Si
+108,Muerto,14.3,58,30.1,56,No fumador,128,74,Normal,No
+109,Vivo,11.6,51,31.0,37,Fumador,132,78,Normal,Si
+110,Vivo,15.4,33,34.0,33,Fumador,120,78,Normal,No
+111,Vivo,11.0,52,37.0,46,No fumador,140,98,Normal,No
+112,Muerto,11.0,52,37.0,46,No fumador,140,98,Normal,No
+113,Muerto,4.8,64,31.2,57,Fumador,172,88,Anormal,Si
+114,Vivo,14.8,31,38.8,29,Ex fumador,136,76,Normal,No
+115,Vivo,1.8,69,22.3,56,No fumador,152,74,Anormal,Si
+116,Vivo,15.8,59,25.0,58,No fumador,126,80,Normal,No
+117,Vivo,14.1,38,31.3,38,Fumador,104,58,Normal,No
+118,Vivo,4.6,49,59.7,49,Ex fumador,142,82,Normal,No
+119,Vivo,15.5,49,34.0,41,No fumador,128,76,Normal,No
+120,Muerto,7.2,68,29.4,66,Ex fumador,122,58,Anormal,Si
+121,Vivo,14.5,40,43.2,41,Ex fumador,122,70,Normal,No
+122,Vivo,10.5,36,35.1,32,Fumador,122,68,Normal,No
+123,Vivo,14.3,60,37.0,54,No fumador,122,70,Normal,No
+124,Muerto,2.2,74,27.1,54,Ex fumador,168,84,Frontera,Si
+125,Vivo,5.0,61,27.6,51,No fumador,162,82,Normal,No
+126,Vivo,12.4,54,25.2,51,No fumador,116,76,Normal,No
+127,Vivo,1.1,35,25.8,34,Fumador,126,82,Normal,No
+128,Vivo,15.4,46,32.2,42,Fumador,180,98,Normal,No
+129,Vivo,14.3,40,41.6,41,Fumador,132,98,Normal,No
+130,Vivo,15.6,53,39.8,52,No fumador,150,88,Normal,No
+131,Muerto,12.5,66,26.6,54,Ex fumador,106,70,Normal,Si
+132,Vivo,12.3,61,33.3,55,No fumador,154,88,Normal,No
+133,Vivo,14.8,41,27.7,38,Ex fumador,122,76,Normal,No
+135,Vivo,12.3,41,25.0,38,Fumador,120,58,Normal,No
+135,Vivo,12.3,41,25.0,38,Fumador,120,58,Normal,No
+136,Vivo,10.3,46,54.3,45,Ex fumador,144,86,Normal,No
+137,Vivo,8.5,80,29.4,79,Ex fumador,134,60,Normal,Si
+138,Vivo,10.2,63,33.1,60,Ex fumador,148,80,Frontera,Si
+139,Muerto,10.0,72,27.3,68,Ex fumador,170,78,Anormal,Si
+140,Vivo,7.3,41,36.9,33,No fumador,160,92,Frontera,Si
+141,Muerto,15.3,52,40.2,36,No fumador,154,96,Normal,No
+142,Vivo,14.0,53,32.7,48,Fumador,124,76,Frontera,Si
+143,Vivo,15.8,61,33.2,57,Ex fumador,130,70,Normal,No
+144,Vivo,11.4,53,41.4,47,Ex fumador,156,78,Normal,No
+145,Muerto,5.5,75,35.8,66,No fumador,162,78,Normal,No
+146,Vivo,11.0,40,34.0,38,Fumador,132,76,Normal,No
+147,Vivo,7.3,61,19.9,37,No fumador,120,60,Frontera,Si
+148,Muerto,10.6,62,30.6,49,No fumador,160,86,Frontera,Si
+149,Vivo,10.5,49,30.8,47,Ex fumador,146,86,Normal,No
