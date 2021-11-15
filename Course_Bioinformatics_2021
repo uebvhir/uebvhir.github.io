@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Curs de Bioinformàtica per a la Recerca Biomèdica</title>
+    <!-- import bootstrap -->
+    <link rel="stylesheet" type="text/css" href="bootstrap.css">
+    <!-- import our own stylesheet -->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <!-- Import GIMP's stylesheets
+    <link rel="stylesheet" type="text/css" href="./GIMPcss/page.css">    <link rel="stylesheet" type="text/css" href="./GIMPcss/downloads.css">    <link rel="stylesheet" type="text/css" href="./GIMPcss/normalize.css">    <link rel="stylesheet" type="text/css" href="./GIMPcss/grid.css">    <link rel="stylesheet" type="text/css" href="./GIMPcss/gimp.css">    <link rel="stylesheet" type="text/css" href="./GIMPcss/font-awesome.min.css">    <link rel="stylesheet" type="text/css" href="./GIMPcss/pygments-default.css">    <link rel="stylesheet" href="./GIMPcss/tipuesearch.css">	-->
+    <!-- import jQuery --> <base target="_blank">
+    <meta name="author" content="Alex Sanchez" >
+    <meta name="description" content="A static web page for the annual UEB Bioinformatics Course 2021">
+    <meta name="keywords" content="Bioinformatics, databases and omics analysis">
+  </head>
+  <body style="      color: white;">
+    <div id="pushPage">
+      <div class="container title">
+        <div class="row clearfix">
+          <div class="column full">
+            <h1>Curs de Bioinformàtica per a la Recerca Biomèdica</h1>
+          </div>
+        </div>
+      </div>
+      <p></p>
+      <p></p>
+      <div class="container"> <img src="UEBimages/3logosVH.png" alt="Vall d'Hebron"
+          height="75"> </div>
+      <p></p>
+      <p></p>
+      <div class="containerJust">
+        <h2>Informació del curs</h2>
+        <div class="containerJust">
+          <h3>Objectius</h3>
+          <p><br>
+            La recerca biomèdica moderna necessita sovint fer servir informació de diverses menes; per exemple sobre estructures, seqüències, anotacions o funcions de diferents tipus d'entitats i components biològics. Molta d’aquesta informació es troba disponible en bases de dades públiques i el domini de les eines per accedir-hi i recuperar-ne la informació necessària és una habilitat cada cop més imprescindible entre els investigadors en biomedicina.
+L'objectiu principal d'aquests curs és proporcionar una perspectiva general dels principals recursos bioinformàtics que poden resultar d'utilitat en el dia a dia de la recerca biomèdica o la pràctica clínica. El seu enfoc és aplicat i el que es persegueix és dotar als investigadors i professionals de la biomedicina de conceptes i eines per saber quan -i com- cal fer servir cadascun d’aquests recursos, o quan és millor buscar suport més especialitzat.
+</p>
+        </div>
+        <p></p>
+        <p></p>
+        <div class="containerJust">
+          <h3>Metodología</h3>
+        </div>
+        <p></p>
+        L'aplicació dels conceptes i tècniques presentats al llarg del curs es durà a terme consultant bases de dades i navegadors genòmics online, però també emprant eines específiques, com Galaxy o R i Rstudio.
+        <p></p>
+ <div class="containerJust">
+          <h3>Professorat</h3>
+        </div>
+        <p></p>
+       El curs està organitzat per la Unitat d'Estadística i Bioinformàtica (UEB) del Vall d'Hebron Institut de Recerca (VHIR). 
+El curs serà impartit pels membres de la UEB, la <b>Dra. Mireia Ferrer</b>, doctora en l'àrea de Biomedicina,  Màster en Bioestadística i Bioinformàtica i Màster en Immunologia, el <b>Dr. Álex Sánchez</b>, doctor en Estadística, Màster en Bioinformàtica i professor titular del departament de Genètica, Microbiologia i Estadística de la Universitat de Barcelona, <b>Esther Camacho</b>, llicenciada en Biotecnologia, Màster en Bioestadística i Bioinformàtica i Màster en Biologia Cel·lular, el <b>Prof. Angel Blanco</b>, DEA en Genètica i professor del departament de Genètica, Microbiologia i Estadística de la Universitat de Barcelona  i la <b>Dra. Berta Miró</b>, doctora en Biologia i Màster en Bioestadística i Bioinformàtica.
+        <p></p>
+        <div class="containerJust">
+          <h3>Continguts del curs</h3>
+          <ul>
+            <li>Introducció a la Bioinformàtica i a les bases de dades en biologia molecular. Introducció a R i Rmarkdown. </li>
+            <li>Introducció a les tecnologies de ‘next generation sequencing’. Treballant amb dades de NGS: primeres passes amb Galaxy.</li>
+            <li>Anàlisis de dades en Bioinformàtica</li>
+            <li>Cas pràctic I: Anàlisi de variants amb Galaxy</li>
+            <li>Cas pràctic II: Anàlisis de dades de RNAseq amb R i Bioconductor</li>
+	    <li>Després de la selecció de gens: Anàlisis de significació biològica</li>
+          </ul>
+          <p></p>
+        </div>
+        <p></p>
+        <p></p>
+        <div class="containerJust">
+          <h3>Dates i horaris</h3>
+        </div>
+        <p>El curs té una durada de 20 hores i consisteix en 5 sessions de 4 hores. 
+Les sessions es faran els dies 17, 22, 24, 29 de novembre i 1 de desembre de 2021, de 9:30 a 13:50 h a l'aula d’informàtica del Mòdul Sud de la Facultat de Medicina (Pavelló Docent) de l'Hospital Universitari Vall d'Hebron.
+          <p></p>
+        </ul>
+      </div>
+      <p></p>
+    </div>
+    <hr>
+    <p></p>
+    <div class="containerJust">
+      <h2>Materials del curs</h2>
+<div class="containerJust">
+        <h4><b>Sessió 1.0 </b>:  Presentació del curs</h4>
+      </div>
+      <ul>
+<li><a href="https://github.com/uebvhir/Curs_Bioinformatica_2020/raw/main/Day_1-Introductions/BBR_2020_Session_1.1_Presentation.pdf"> Presentació </a></li>      
+</ul>
+      <p></p>
+<div class="containerJust">
+      <h4><b>Sessió 1.1 </b>:  Introducció a la Bioinformàtica i a les Bases de Dades en Biologia Molecular</h4>
+      </div>
+      <ul>
+<li><a href="https://github.com/uebvhir/Curs_Bioinformatica_2021/raw/main/Session1.1-IntroAndDatabases/BBR_2021_Session1.1-Introduction_Bioinformatics_DataBases.pdf"> Presentació </a></li>           
+      <li><a href="https://github.com/uebvhir/Curs_Bioinformatica_2021/raw/main/Session1.1-IntroAndDatabases/Practicum_geoqueries.html"> Cas pràctic: Descàrrega de dades de GEO amb R (html)</a></li>      
+      <li><a href="https://github.com/uebvhir/Curs_Bioinformatica_2021/raw/main/Session1.1-IntroAndDatabases/Practicum_geoqueries.Rmd"> Cas pràctic: Descàrrega de dades de GEO amb R (Rmd)</a></li>  
+<li><a href="https://github.com/uebvhir/Curs_Bioinformatica_2021/raw/main/Session1.1-IntroAndDatabases/Practicum_TCGA.html"> Cas pràctic: Descàrrega de dades de TCGA amb R (html)</a></li>      
+      <li><a href="https://github.com/uebvhir/Curs_Bioinformatica_2021/raw/main/Session1.1-IntroAndDatabases/Practicum_TCGA.Rmd"> Cas pràctic: Descàrrega de dades de TCGA amb R (Rmd)</a></li>  
+     
+</ul>
+      <p></p>
+<div class="containerJust">
+      <h4><b>Sessió 1.2 </b>:  Introducció a R i Rmarkdown(I)</h4>
+      </div>
+      <ul>
+      <li><a href="https://github.com/uebvhir/Curs_Bioinformatica_2021/raw/main/Session1.2-IntroRandPracticum/Day_2_Introduction_to_R_II.pdf"> Presentació </a></li>
+<li><a href="https://github.com/uebvhir/Curs_Bioinformatica_2021/raw/main/Session1.2-IntroRandPracticum/osteoporosis.csv"> osteoporosis.csv </a></li>		    
+
+      <li><a href="https://github.com/uebvhir/Curs_Bioinformatica_2021/raw/main/Session1.2-IntroRandPracticum/R_Rstudio_Installation.pdf"> R_Rstudio_Installation.pdf</a></li>
+       <li><a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/R_Carsh_Course.pdf"> R crash Course</a></li>
+       <li><a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/datasets/GSE100924_series_matrix.txt"> Dades descarregades de GEO
+  </a></li>
+      <li><a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/TIO2+PTYR-human-MSS+MSIvsPD.XLSX"> Dades de prova per analitzar (Excel)
+  </a></li>
+  </ul>
+      <p></p>
+<div class="containerJust">
+      <h4><b>Sessió 2.1</b>: Introducció i aplicacions a les tecnologies de ‘next generation sequencing’</h4>
+      </div>
+	<ul>
+      <li><a href="https://github.com/uebvhir/Curs_Bioinformatica_2021/raw/main/Session2.1-IntroNGS/Day4_Session_4_1_Introduction_to_NGS.pdf"> Presentació </a></li>      
+	</ul>
+      <p></p>     
+<div class="containerJust">
+      <h4><b>Sessió 2.2</b>: Introducció a Galaxy. Primeres passes en l'anàlisi de dades de NGS.</h4>
+      </div>
+	<ul>
+      <li><a href="https://github.com/uebvhir/Curs_Bioinformatica_2021/raw/main/Session2.2-DataFormatsAndGalaxy/Day4_Session_4_2_DataFormats_Galaxy.pdf"> Presentació </a></li>
+	</ul>
+      <p></p>
+<div class="containerJust">
+      <h4><b>Sessió 3.1</b>: Introducció a l'anàlisi de variants</h4>
+      </div>
+      <ul>
+      <li><a href="https://github.com/uebvhir/Curs_Bioinformatica_2021/raw/main/Session3.1-IntroVariantAnalysis/Session5-1_Introduction_Variant_Analysis.pdf"> Presentació </a></li>      
+      </ul>
+      <p></p>
+<div class="containerJust">
+      <h4><b>Sessió 3.2</b>: Cas pràctic 1: Anàlisi de variants amb Galaxy</h4>
+      </div>
+      <ul>
+      <li><a href="https://github.com/uebvhir/Curs_Bioinformatica_2021/raw/main/Session3.2-GalaxyVariantAnalysis/Day6_Session_6_Variant_Analysis.pdf"> Presentació </a></li>      
+      </ul>
+      <p></p>
+<div class="containerJust">
+      <h4><b>Sessió 4.1</b>: Anàlisi de dades òmiques. Conceptes importants en l'anàlisi de dades de RNAseq</h4>
+      </div>
+      <ul>
+      <li><a href="https://github.com/uebvhir/Curs_Bioinformatica_2021/raw/main/Session4.1-IntroRNAseq/Days_7_8_Session_ODA_RNAseq.pdf"> Presentació </a></li>      
+      </ul>
+      <p></p>
+<div class="containerJust">
+      <h4><b>Sessió 4.2</b>: Cas pràctic 2: Anàlisi de dades de RNAseq</h4>
+      </div>
+      <ul>
+      <li><a href="https://github.com/uebvhir/Curs_Bioinformatica_2021/raw/main/Session4.2-PracticumRNAseqR/Days_7_8_Session_ODA_RNAseq.pdf"> Presentació </a></li>      
+      </ul>
+      <p></p>
+<div class="containerJust">
+      <h4><b>Sessió 5.1</b>: Anàlisi de significació de biològica (I): Mètodes</h4>
+      </div>
+	    <ul>
+      <li><a href="https://github.com/uebvhir/Curs_Bioinformatica_2021/raw/main/Session5.1-IntroPathwayAnalysis/Intro2PathwayEnrichmentAnalysis-SHORT.pdf"> Presentació </a></li>  
+      <li><a href="https://uebvhir.github.io/Pathway_Analysis-Guidelines/">Pathway Analysis Guidelines (web)</a></li>
+      </ul>      
+      <p></p>
+<div class="containerJust">
+      <h4><b>Sessió 5.2</b>: Anàlisi de significació de biològica (II): Eines i Recursos. Hands On.</h4>
+      </div>
+	    <ul>
+      <li><a href="https://github.com/uebvhir/Curs_Bioinformatica_2021/raw/main/Session5.2-HandsOnPathwayAnalysis/Session10_HandsOn_EnrichmentAnalysis.pdf"> Presentació </a></li>  
+      </ul>      
+      <p></p>
+<div class="containerJust">
+        <h2>Enllaços i referències interessants</h2>
+        <h3>R and Rstudio</h3>
+        <ul>
+          <li><a href="https://cran.r-project.org/" title="The R-project home" target="_blank">The
+              Rproject for Statistical Computing</a></li>
+          <li><a href="https://www.rstudio.com/" title="Rstudio home: much more than an editor"
+              target="_blank">RStudio</a></li>
+ 	  <li><a href="https://stats.idre.ucla.edu/r/seminars/short-introduction-to-r/" target="_blank">A short introduction to R</a></li>
+        </ul>
+        <h3>Enllaços interessants</h3>
+        <ul>
+          <li><a href="http://www.geneontology.org/" target="_blank">Gene Ontology</a></li>
+	  <li><a href="https://reactome.org/" target="_blank">Reactome</a></li>
+	  <li><a href="https://genome.ucsc.edu/" target="_blank">UCSC genome browser</a></li>
+<li><a href="https://usegalaxy.org/" target="_blank">Use Galaxy</a></li>
+<li><a href="https://amp.pharm.mssm.edu/biojupies/" target="_blank">Biojupies Web Tool (RNAseq)</a></li>
+        </ul>
+        <h3>Tutorials</h3>
+        <ul>
+           <li><a href="https://bioconnector.github.io/workshops/r-rnaseq-airway.html" target="_blank"> RNAseq with R</a></li>     
+          <li><a href="https://galaxyproject.org/tutorials/rb_rnaseq/" target="_blank"> RNAseq with Galaxy</a></li>
+        </ul>
+      </div>
+      <p></p>
+  </body>
+</html>
