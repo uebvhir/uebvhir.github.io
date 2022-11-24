@@ -1,266 +1,304 @@
 <!DOCTYPE html>
-  <html>
-  <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <title>Statistical Analysis with R</title>
-      <!-- import bootstrap --->
-      <link rel="stylesheet" type="text/css" href="bootstrap.css">
-        <!-- import our own stylesheet --->
-        <link rel="stylesheet" type="text/css" href="styles.css">
-          <!-- Import GIMP's stylesheets
-    <link rel="stylesheet" type="text/css" href="./GIMPcss/page.css">    <link rel="stylesheet" type="text/css" href="./GIMPcss/downloads.css">    <link rel="stylesheet" type="text/css" href="./GIMPcss/normalize.css">    <link rel="stylesheet" type="text/css" href="./GIMPcss/grid.css">    <link rel="stylesheet" type="text/css" href="./GIMPcss/gimp.css">    <link rel="stylesheet" type="text/css" href="./GIMPcss/font-awesome.min.css">    <link rel="stylesheet" type="text/css" href="./GIMPcss/pygments-default.css">    <link rel="stylesheet" href="./GIMPcss/tipuesearch.css">	--->
-    <!-- import jQuery --> <base target="_blank">
-    <meta name="author" content="Alex" >
-    <meta name="description" content="A static web page for the VHIR UEB Statistics Course to be taught in 2022">
-    <meta name="keywords" content="Statistical Analysis with R">
+<html>
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="content-type">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<title>Statistical Analysis with R</title><!-- import bootstrap =-->
+	<link href="bootstrap.css" rel="stylesheet" type="text/css"><!-- import our own stylesheet =-->
+	<link href="styles.css" rel="stylesheet" type="text/css"><!-- Import GIMP's stylesheets
+    <link rel="stylesheet" type="text/css" href="./GIMPcss/page.css">    <link rel="stylesheet" type="text/css" href="./GIMPcss/downloads.css">    <link rel="stylesheet" type="text/css" href="./GIMPcss/normalize.css">    <link rel="stylesheet" type="text/css" href="./GIMPcss/grid.css">    <link rel="stylesheet" type="text/css" href="./GIMPcss/gimp.css">    <link rel="stylesheet" type="text/css" href="./GIMPcss/font-awesome.min.css">    <link rel="stylesheet" type="text/css" href="./GIMPcss/pygments-default.css">    <link rel="stylesheet" href="./GIMPcss/tipuesearch.css">   =-->
+	<!-- import jQuery -->
+	<base target="_blank">
+	<meta content="Alex" name="author">
+	<meta content="A static web page for the VHIR UEB Statistics Course to be taught in 2022" name="description">
+	<meta content="Statistical Analysis with R" name="keywords">
 </head>
-<body style="      color: white;">
-    <div id="pushPage">
-      <div class="container title">
-        <div class="row clearfix">
-          <div class="column full">
-            <h1>Curs d'Estadística per a la Recerca Biomèdica amb R (2022)</h1>
-          </div>
-          </div>
-          </div>
-          <p></p>
-          <p></p>
-          <div class="container"> <img src="UEBimages/4logosVHGRBIO.png" alt="Vall d'Hebron"
-          height="75"> </div>
-            <p></p>
-            <p></p>
-            <div class="containerJust">
-            <h2>Informació del curs</h2>
-            <div class="containerJust">
-            <h3><u>Objectius</u></h3>
-            <p><br>
-            La recerca biomèdica té una component quantitativa important i els investigadors necessiten sovint poder processar i analitzar les dades que recullen o generen en els seus estudis. Si bé algunes d'aquestes anàlisis poden ser complexes i requerir de personal especialitzat n'hi ha d'altres que, amb els coneixements i els recursos adequats, són relativament senzilles de dur a terme.
-           L'objectiu principal d'aquests curs és proporcionar una perspectiva general dels principals mètodes estadístics que poden resultar d'utilitat en el dia a dia de la recerca biomèdica o la pràctica clínica. El seu enfocament és aplicat i el que es persegueix és dotar els investigadors i professionals de la biomedicina, de conceptes i eines per saber quan cal aplicar cada tècnica, i com fer-ho utilitzant l'eina estadística apropiada.
-          
-
-</p>
-        </div>
-        <p></p>
-        <p></p>
-        <div class="containerJust">
-          <h3><u>Metodologia</u></h3>
-        </div>
-        <p></p>
-        Els professors presentaran les idees bàsiques fent servir materials en línia i exemples senzills i es proposaran exercicis d'anàlisis de dades per treballar i consolidar els conceptes.
-          m,  L'eina principal serà el llenguatge estadístic R amb la interfície Rstudio. Ambdues eines es poden descarregar lliurement de la web i s'instal·len fàcilment en ordinadors personals. 
-          <p></p>
-            <div class="containerJust">
-            <h3><u>Professorat</u></h3>
-            </div>
-            <p></p>
-            El curs està organitzat conjuntament per la Unitat d'Estadística i Bioinformàtica (UEB) del Vall d'Hebron Institut de Recerca (VHIR).  
-          El curs serà impartit pel <b>Dr. Santiago Pèrez-Hoyos</b>, Llicenciat en Matemàtiques , Esp. Estadística i Dr. en Salut Comunitària, i Cap de la Unitat d'Estadística i Bioinformàtica (UEB) del VHIR, 
-		el <b>Dr. Àlex Sànchez</b>, professor titular del departament de Genètica, Microbiologia i Estadística de la Universitat de Barcelona i Responsable de Projectes de Ciències de Dades de  
-la UEB i la <b>Sra. Miriam Mota-Foix</b> 
-Graduada en Estadística especialitzada en salut i Màster en Estadística i Bioinformàtica.
-        <p></p>
-        <div class="containerJust">
-          <h3><u>Continguts del curs</u></h3>
-          <ul>	  
-			 <li>Sessió 1. Introducció a R i RStudio i Tidyverse. </li>
-			 <li>Sessió 2. Estadística descriptiva I: Resums numèrics, taules i gràfics. Reproduïbilitat amb R</li> 
-			 <li>Sessió 3. Estadística descriptiva II: Gràfics i taules bivariants. Visualització de dades amb ggplot2..</li> 
-			 <li>Sessió 4. Més manegament de dades amb R. Automatització de tasques amb scripts..</li>			 
-			 <li>Sessió 5. Introducció a la inferència estadística. Intervals de confiança.</li>
-			 <li>Sessió 6. Proves d'hipòtesis I: Conceptes bàsics	</li>
-            <li>Sessió 7. Proves d'hipòtesis II: Variables quantitatives.</li> 
-			 <li>Sessió 8. Proves d'hipòtesis III: Variables qualitatives.</li> 
-            <li>Sessió 9. Tests diagnòstics: Sensibilitat, especificitat i corbes ROC. Exercici de análisis de dades reals.</li>
-            <li>Sessió 10. I Exercici resum d’anàlisis de dades reals </li>           
-            </ul>
-            <p></p>
-            </div>
-            <p></p>
-            <p></p>
-            <div class="containerJust">
-            <h3><u>Dates i localització</u></h3>
-            </div>
-            <p>El curs té una durada de 20 hores i consisteix en 5 sessions de dues hores que es faran en dilluns i dimecres de 09:00 a 130300 els dies: 14,16,21, 23 i 28 de novembre de 2022 
-          
-          <p></p> 
-            Les sessions es faran <b>presencialment </b> a l'aula informàtica del pavelló docent.
-			<p>
-        </ul>
-      </div>
-      <p></p>
-    </div>
-    <hr>
-    <p></p>
-    <div class="containerJust">
-      <h2><u>Materials del curs</u></h2>
-	    
-	    
-<div class="containerJust">
-<h4>Sessió 0 :  Presentació del curs</h4>
-</div>
-
-<ul>
-
-<li><a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/StatisticsWithR-0-Presentation_cb2021.pdf"> Presentació.pdf </a></li>  
-</ul>
- 
-<div class="containerJust">
-<h4>Sessió 1. Introducció a R i RStudio i Tidyverse</h4>
-</div>
-<ul>
-<li><a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/StatisticsWithR-1-Introduction_to_R_cb2021.pdf"> Presentació.pdf </a></li> 
-<li>Datasets </li>
-  <ul>
-   <li><a href="https://raw.githubusercontent.com/uebvhir/uebvhir.github.io/master/datasets/osteoporosis.csv">Osteoporosis (csv)
-    </a></li> 
-     <li><a href="https://github.com/uebvhir/uebvhir.github.io/raw/master/datasets/diabetes.xls">
-          Diabetes (Excel)
-    </a></li> 
-  </ul>
-</ul>
-
-<div class="containerJust">
-<h4>Sessió 2. Estadística descriptiva I: Resums numèrics, taules i gràfics. Reproduïbilitat amb R</h4>
-</div>
-<ul>
-<li><a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/StatisticsWithR-2-exploratoryDataAnalysis.pdf"> Presentació </a></li>
-<li><a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/StatisticsWithR-2-EDA_withR.Rmd"> <it>Notebook</it> de la sessio </a></li>
-<li><a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/StatisticsWithR-2-EDA-Exercises.Rmd"> Exercicis </a></li>
-<li>Datasets </li>
-  <ul>
-   <li><a href="https://github.com/uebvhir/uebvhir.github.io/raw/master/datasets/diabetes.csv">diabetes (csv)
-    </a></li> 
-     <li><a href="https://github.com/uebvhir/uebvhir.github.io/raw/master/datasets/diabetes_mod.xls">
-          Diabetes amb "missings" (Excel)
-    </a></li> 
-  </ul>
-
-</ul>
-<p></p>
-
-<div class="containerJust">
-<h4>Sessió 3. Estadística descriptiva II: Gràfics i taules bivariants. Visualització de dades amb ggplot2.</h4>
-</div>
-<ul>
-<li><a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/StatisticsWithR-3-Exploratory_Analysis_II_And_Graphics.pdf"> Presentació </a></li>
-<li><a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/StatisticsWithR-3-EDA_withR.Rmd"> Notebook de la sessió
-</a></li>
-<li><a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/Session3_Exercise_2021_PSPV_descriptive.pdf"> Exercicis </a></li>
-<li><a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/ggassist.pdf"> ggplotAssist.pdf </a></li>
-</ul>    
-<p></p>
-	        
-<div class="containerJust">
-<h4>Sessió 4. Més manegament de dades amb R. Automatització de tasques amb scripts</h4>
-</div>
-<ul>
- <li><a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/StatisticsWithR-4-DataManagment.pdf"> Presentació </a></li>
- <li><a href="https://raw.githubusercontent.com/uebvhir/Course2020_Statistical-Analysis-with-R/master/Slides/sessio4_notebook.Rmd"> Notebook de la sessió </a></li>
-</ul>
-
-      		
-<div class="containerJust">
-<h4>Sessió 5: Introducció a la inferència estadística. Intervals de confiança</h4>
-</div>
-<ul>
-<li><a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/StatisticsWithR-5-Introduction_to_Statistical_Inference_cbvhir.pdf"> Presentació </a></li> 
-<li><a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/Session_5-Exercises.Rmd"> Exemples i exercicis (<it>Notebook</it>)</a>
-</li>
-  <li><a href="https://raw.githubusercontent.com/uebvhir/Course2020_Statistical-Analysis-with-R/master/Slides/Session_5-Exercises.html"> Exemples i exercicis (html) </a>
-</li>
-<li><a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/Session_5-Exercises.pdf"> Exercises Solutions</a></li>
-</ul>
-      	  
-<div class="containerJust">
-<h4>Sessió 6. Proves d'hipòtesis I: Conceptes bàsics. Proves d'hipòtesis I</h4>
-</div>
-<ul>
-<li><a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/StatisticsWithR-6-Principles_of_Hypothesis_Testing.pdf">Presentacio</a></li>
-<li><a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/StatisticsWithR-6-Principles_of_Hypothesis_Testing.nb.Rmd">Notebook de la sessió </a></li>
-<li><a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/Session_6-Exercises.Rmd.Rmd">Questions </a></li>
-</ul>
-
-<div class="containerJust">
-<h4>Sessió 7. Proves d'hipòtesis II: Variables quantitatives</h4>
-</div>
-            <ul>
-            <li><a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/StatisticsWithR-7-Tests_with_continuous_variables.pdf"> Presentació.pdf </a></li> 
-            <li><a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/StatisticsWithR-7-Tests_with_continuous_variables_notebook.Rmd"> Codi i exercicis (Rmd) </a></li> 
-            <li><a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/EBB2018_Session6y7_Exercici.pdf"> Exercicis.pdf </a></li> 
-            <li>Datasets </li>
-            <ul>
-            <li><a href="https://github.com/uebvhir/uebvhir.github.io/raw/master/datasets/hta.xls">  hta (Excel)      </a></li> 
-            <li><a href="https://github.com/uebvhir/uebvhir.github.io/raw/master/datasets/diabetes.xls">            Diabetes (Excel)          </a></li>
-            <li><a href="https://github.com/uebvhir/uebvhir.github.io/raw/master/datasets/demora.xls"> Demora(Excel)
-          </a></li>
-            </ul>
-             </ul>
-            
-<div class="containerJust">
-<h4>Sessió 8:  Proves d'hipòtesis III: Variables categòriques</h4>
-</div>
-
-<ul>
-<li><a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/StatisticsWithR-8-Testing-with-categorical-variables.pdf"> Presentació </a></li>
-<li><a href="https://raw.githubusercontent.com/uebvhir/Course2020_Statistical-Analysis-with-R/master/Slides/StatisticsWithR-8-Testing with categorical variables.Rmd"> Notebook </a></li>
- <li><a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/datasets/dadescancer.csv">Dades sobre relacio entre tabaquisme i cancer (csv)</a>  </li> 
-</ul>	        
-	   <samp><samp></samp></samp>
-<div class="containerJust">
-<h4> Sessió 9: Test diagnòstics: Sensibilitat, especificitat i corbes ROC	</h4>
-</div>
-
- <ul>
-<li><a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/Statsistics_withR_9_Tests_diagnostics_PSPV.pdf"> Presentació.pdf </a></li> 
-</ul>
-
-
-<div class="containerJust">
-<h4>Sessió 10. Introducció a l'anàlisi de superivvència. Exercici resum d’anàlisis de dades reals</h4>
-</div>
- <ul>
- <li><a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/StatisticsWithR-10-Introduction_to_Survival.pdf"> Presentació.pdf </a></li>
- <li><a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/StatisticsWithR_Solution_Final_Exercise.pdf">Solució Exercicis 6 y 7.pdf </a></li> 
- </ul>
-
-<h2>Enquesta de satisfacció del curs</h2>
-<ul>
- <li><a href="https://servirredcap.vhir.org/redcap/surveys/?s=NCD4M3YACE" title="Enllaç" target="_blank"> Enquesta de satisfacció del curs Bioestadística2021</a></li> 
-</ul>
-      
-<hr>
-
-
-<h2>Enllaços i referències interessants</h2>
-<h3>R and Rstudio</h3>
-<ul>
-<li>  <a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/R_Crash_Course.pdf"> R Crash course: Introduction to R </a>
-</li>
-<li>  <a href="https://cran.r-project.org/"> The Rproject for Statistical Computing</a>
-</li>
-<li><a href="https://www.rstudio.com/products/rstudio/download/"> Pàgina web de descarga de R Studio</a>
-</li>
-</ul>
-<h3>Llibres i webs</h3>
-<ul>
-<li>  <a href="https://epirhandbook.com/index.html">The Epidemiologist R Handbook </a></li>
-<li>  <a href="https://r4ds.had.co.nz/"> R for Data Science</a></li>
-<li> <a href="https://moderndive.com">Statistical Inference via Data Science</a></li>
-<li> <a href="https://hbiostat.org/bbr/">Frank Harrell's Biostatistics for Biomedical Research Web Site</a></li>
-
-</ul>
-<h3>Tutorials</h3>
-<ul>
-<li>  <a href="http://www.r-tutor.com/elementary-statistics"> R tutorial. Elementary Statisticcs with R</a>
-</li>
-</ul>
-<h3>Datasets</h3>
-<ul>
-<li>  <a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/tree/master/datasets"> All Datasets</a>
-</li>
-</ul>
-</div>
-<p></p>
+<body style=" color: white;">
+	<div id="pushPage">
+		<div class="container title">
+			<div class="row clearfix">
+				<div class="column full">
+					<h1>Curs d'Estadística per a la Recerca Biomèdica amb R (2022)</h1>
+				</div>
+			</div>
+		</div>
+		<p></p>
+		<p></p>
+		<div class="container"><img alt="Vall d'Hebron" height="75" src="UEBimages/4logosVHGRBIO.png"></div>
+		<p></p>
+		<p></p>
+		<div class="containerJust">
+			<h2>Informació del curs</h2>
+			<div class="containerJust">
+				<h3><u>Objectius</u></h3>
+				<p><br>
+				La recerca biomèdica té una component quantitativa important i els investigadors necessiten sovint poder processar i analitzar les dades que recullen o generen en els seus estudis. Si bé algunes d'aquestes anàlisis poden ser complexes i requerir de personal especialitzat n'hi ha d'altres que, amb els coneixements i els recursos adequats, són relativament senzilles de dur a terme. L'objectiu principal d'aquests curs és proporcionar una perspectiva general dels principals mètodes estadístics que poden resultar d'utilitat en el dia a dia de la recerca biomèdica o la pràctica clínica. El seu enfocament és aplicat i el que es persegueix és dotar els investigadors i professionals de la biomedicina, de conceptes i eines per saber quan cal aplicar cada tècnica, i com fer-ho utilitzant l'eina estadística apropiada.</p>
+			</div>
+			<p></p>
+			<p></p>
+			<div class="containerJust">
+				<h3><u>Metodologia</u></h3>
+			</div>
+			<p></p>Els professors presentaran les idees bàsiques fent servir materials en línia i exemples senzills i es proposaran exercicis d'anàlisis de dades per treballar i consolidar els conceptes. m, L'eina principal serà el llenguatge estadístic R amb la interfície Rstudio. Ambdues eines es poden descarregar lliurement de la web i s'instal·len fàcilment en ordinadors personals.
+			<p></p>
+			<div class="containerJust">
+				<h3><u>Professorat</u></h3>
+			</div>
+			<p></p>El curs està organitzat conjuntament per la Unitat d'Estadística i Bioinformàtica (UEB) del Vall d'Hebron Institut de Recerca (VHIR). El curs serà impartit pel <b>Dr. Santiago Pèrez-Hoyos</b>, Llicenciat en Matemàtiques , Esp. Estadística i Dr. en Salut Comunitària, i Cap de la Unitat d'Estadística i Bioinformàtica (UEB) del VHIR, el <b>Dr. Àlex Sànchez</b>, professor titular del departament de Genètica, Microbiologia i Estadística de la Universitat de Barcelona i Responsable de Projectes de Ciències de Dades de la UEB i la <b>Sra. Miriam Mota-Foix</b> Graduada en Estadística especialitzada en salut i Màster en Estadística i Bioinformàtica.
+			<p></p>
+			<div class="containerJust">
+				<h3><u>Continguts del curs</u></h3>
+				<ul>
+					<li>Sessió 1. Introducció a R i RStudio i Tidyverse.</li>
+					<li>Sessió 2. Estadística descriptiva I: Resums numèrics, taules i gràfics. Reproduïbilitat amb R</li>
+					<li>Sessió 3. Estadística descriptiva II: Gràfics i taules bivariants. Visualització de dades amb ggplot2..</li>
+					<li>Sessió 4. Més manegament de dades amb R. Automatització de tasques amb scripts..</li>
+					<li>Sessió 5. Introducció a la inferència estadística. Intervals de confiança.</li>
+					<li>Sessió 6. Proves d'hipòtesis I: Conceptes bàsics</li>
+					<li>Sessió 7. Proves d'hipòtesis II: Variables quantitatives.</li>
+					<li>Sessió 8. Proves d'hipòtesis III: Variables qualitatives.</li>
+					<li>Sessió 9. Tests diagnòstics: Sensibilitat, especificitat i corbes ROC. Exercici de análisis de dades reals.</li>
+					<li>Sessió 10. I Exercici resum d’anàlisis de dades reals</li>
+				</ul>
+				<p></p>
+			</div>
+			<p></p>
+			<p></p>
+			<div class="containerJust">
+				<h3><u>Dates i localització</u></h3>
+			</div>
+			<p>El curs té una durada de 20 hores i consisteix en 5 sessions de dues hores que es faran en dilluns i dimecres de 09:00 a 130300 els dies: 14,16,21, 23 i 28 de novembre de 2022</p>
+			<p></p>Les sessions es faran <b>presencialment</b> a l'aula informàtica del pavelló docent.
+			<p></p>
+		</div>
+		<p></p>
+	</div>
+	<hr>
+	<p></p>
+	<div class="containerJust">
+		<h2><u>Materials del curs</u></h2>
+		<div class="containerJust">
+			<h4>Sessió 0 : Presentació del curs</h4>
+		</div>
+		<ul>
+			<li>
+				<a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/StatisticsWithR-0-Presentation_cb2021.pdf">Presentació.pdf</a>
+			</li>
+		</ul>
+		<div class="containerJust">
+			<h4>Sessió 1. Introducció a R i RStudio i Tidyverse</h4>
+		</div>
+		<ul>
+			<li>
+				<a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/StatisticsWithR-1-Introduction_to_R_cb2021.pdf">Presentació.pdf</a>
+			</li>
+			<li>Datasets</li>
+			<li style="list-style: none; display: inline">
+				<ul>
+					<li>
+						<a href="https://raw.githubusercontent.com/uebvhir/uebvhir.github.io/master/datasets/osteoporosis.csv">Osteoporosis (csv)</a>
+					</li>
+					<li>
+						<a href="https://github.com/uebvhir/uebvhir.github.io/raw/master/datasets/diabetes.xls">Diabetes (Excel)</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<div class="containerJust">
+			<h4>Sessió 2. Estadística descriptiva I: Resums numèrics, taules i gràfics. Reproduïbilitat amb R</h4>
+		</div>
+		<ul>
+			<li>
+				<a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/StatisticsWithR-2-exploratoryDataAnalysis.pdf">Presentació</a>
+			</li>
+			<li>
+				<a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/StatisticsWithR-2-EDA_withR.Rmd">Notebook de la sessio</a>
+			</li>
+			<li>
+				<a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/StatisticsWithR-2-EDA-Exercises.Rmd">Exercicis</a>
+			</li>
+			<li>Datasets</li>
+			<li style="list-style: none; display: inline">
+				<ul>
+					<li>
+						<a href="https://github.com/uebvhir/uebvhir.github.io/raw/master/datasets/diabetes.csv">diabetes (csv)</a>
+					</li>
+					<li>
+						<a href="https://github.com/uebvhir/uebvhir.github.io/raw/master/datasets/diabetes_mod.xls">Diabetes amb "missings" (Excel)</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<p></p>
+		<div class="containerJust">
+			<h4>Sessió 3. Estadística descriptiva II: Gràfics i taules bivariants. Visualització de dades amb ggplot2.</h4>
+		</div>
+		<ul>
+			<li>
+				<a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/StatisticsWithR-3-Exploratory_Analysis_II_And_Graphics.pdf">Presentació</a>
+			</li>
+			<li>
+				<a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/StatisticsWithR-3-EDA_withR.Rmd">Notebook de la sessió</a>
+			</li>
+			<li>
+				<a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/Session3_Exercise_2021_PSPV_descriptive.pdf">Exercicis</a>
+			</li>
+			<li>
+				<a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/ggassist.pdf">ggplotAssist.pdf</a>
+			</li>
+		</ul>
+		<p></p>
+		<div class="containerJust">
+			<h4>Sessió 4. Més manegament de dades amb R. Automatització de tasques amb scripts</h4>
+		</div>
+		<ul>
+			<li>
+				<a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/StatisticsWithR-4-DataManagment.pdf">Presentació</a>
+			</li>
+			<li>
+				<a href="https://raw.githubusercontent.com/uebvhir/Course2020_Statistical-Analysis-with-R/master/Slides/sessio4_notebook.Rmd">Notebook de la sessió</a>
+			</li>
+		</ul>
+		<div class="containerJust">
+			<h4>Sessió 5: Introducció a la inferència estadística. Intervals de confiança</h4>
+		</div>
+		<ul>
+			<li>
+				<a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/StatisticsWithR-5-Introduction_to_Statistical_Inference_cbvhir.pdf">Presentació</a>
+			</li>
+			<li>
+				<a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/Session_5-Exercises.Rmd">Exemples i exercicis (Notebook)</a>
+			</li>
+			<li>
+				<a href="https://raw.githubusercontent.com/uebvhir/Course2020_Statistical-Analysis-with-R/master/Slides/Session_5-Exercises.html">Exemples i exercicis (html)</a>
+			</li>
+			<li>
+				<a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/Session_5-Exercises.pdf">Exercises Solutions</a>
+			</li>
+		</ul>
+		<div class="containerJust">
+			<h4>Sessió 6. Proves d'hipòtesis I: Conceptes bàsics. Proves d'hipòtesis I</h4>
+		</div>
+		<ul>
+			<li>
+				<a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/StatisticsWithR-6-Principles_of_Hypothesis_Testing.pdf">Presentacio</a>
+			</li>
+			<li>
+				<a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/StatisticsWithR-6-Principles_of_Hypothesis_Testing.nb.Rmd">Notebook de la sessió</a>
+			</li>
+			<li>
+				<a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/Session_6-Exercises.Rmd.Rmd">Questions</a>
+			</li>
+		</ul>
+		<div class="containerJust">
+			<h4>Sessió 7. Proves d'hipòtesis II: Variables quantitatives</h4>
+		</div>
+		<ul>
+			<li>
+				<a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/StatisticsWithR-7-Tests_with_continuous_variables.pdf">Presentació.pdf</a>
+			</li>
+			<li>
+				<a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/StatisticsWithR-7-Tests_with_continuous_variables_notebook.Rmd">Codi i exercicis (Rmd)</a>
+			</li>
+			<li>
+				<a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/EBB2018_Session6y7_Exercici.pdf">Exercicis.pdf</a>
+			</li>
+			<li>Datasets</li>
+			<li style="list-style: none; display: inline">
+				<ul>
+					<li>
+						<a href="https://github.com/uebvhir/uebvhir.github.io/raw/master/datasets/hta.xls">hta (Excel)</a>
+					</li>
+					<li>
+						<a href="https://github.com/uebvhir/uebvhir.github.io/raw/master/datasets/diabetes.xls">Diabetes (Excel)</a>
+					</li>
+					<li>
+						<a href="https://github.com/uebvhir/uebvhir.github.io/raw/master/datasets/demora.xls">Demora(Excel)</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<div class="containerJust">
+			<h4>Sessió 8: Proves d'hipòtesis III: Variables categòriques</h4>
+		</div>
+		<ul>
+			<li>
+				<a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/StatisticsWithR-8-Testing-with-categorical-variables.pdf">Presentació</a>
+			</li>
+			<li>
+				<a href="https://raw.githubusercontent.com/uebvhir/Course2020_Statistical-Analysis-with-R/master/Slides/StatisticsWithR-8-Testing%20with%20categorical%20variables.Rmd">Notebook</a>
+			</li>
+			<li>
+				<a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/datasets/dadescancer.csv">Dades sobre relacio entre tabaquisme i cancer (csv)</a>
+			</li>
+		</ul><samp><samp></samp></samp>
+		<div class="containerJust">
+			<h4>Sessió 9: Test diagnòstics: Sensibilitat, especificitat i corbes ROC</h4>
+		</div>
+		<ul>
+			<li>
+				<a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/Statsistics_withR_9_Tests_diagnostics_PSPV.pdf">Presentació</a>
+			</li>
+		</ul>
+		<div class="containerJust">
+			<h4>Sessió 10. Introducció a l'anàlisi de supervivència.<br> Exercici resum d’anàlisis de dades reals</h4>
+		</div>
+		<ul>
+			<li>
+				<a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/StatisticsWithR-10-Introduction_to_Survival.pdf">Presentació</a>
+			</li>
+			<li>
+				<a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/StatisticsWithR_Solution_Final_Exercise.pdf">Solució Exercicis 6 y 7.pdf</a>
+			</li>
+		</ul>
+		<h2>Enquesta de satisfacció del curs</h2>
+		<ul>
+			<li>
+				<a href="https://servirredcap.vhir.org/redcap/surveys/?s=NCD4M3YACE" target="_blank" title="Enllaç">Enquesta de satisfacció del curs Bioestadística2021</a>
+			</li>
+		</ul>
+		<hr>
+		<h2>Enllaços i referències interessants</h2>
+		<h3>R and Rstudio</h3>
+		<ul>
+			<li>
+				<a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/R_Crash_Course.pdf">R Crash course: Introduction to R</a>
+			</li>
+			<li>
+				<a href="https://cran.r-project.org/">The Rproject for Statistical Computing</a>
+			</li>
+			<li>
+				<a href="https://www.rstudio.com/products/rstudio/download/">Pàgina web de descarga de R Studio</a>
+			</li>
+		</ul>
+		<h3>Llibres i webs</h3>
+		<ul>
+			<li>
+				<a href="https://epirhandbook.com/index.html">The Epidemiologist R Handbook</a>
+			</li>
+			<li>
+				<a href="https://r4ds.had.co.nz/">R for Data Science</a>
+			</li>
+			<li>
+				<a href="https://moderndive.com">Statistical Inference via Data Science</a>
+			</li>
+			<li>
+				<a href="https://hbiostat.org/bbr/">Frank Harrell's Biostatistics for Biomedical Research Web Site</a>
+			</li>
+		</ul>
+		<h3>Tutorials</h3>
+		<ul>
+			<li>
+				<a href="http://www.r-tutor.com/elementary-statistics">R tutorial. Elementary Statisticcs with R</a>
+			</li>
+		</ul>
+		<h3>Datasets</h3>
+		<ul>
+			<li>
+				<a href="https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/tree/master/datasets">All Datasets</a>
+			</li>
+		</ul>
+	</div>
+	<p></p>
 </body>
 </html>
