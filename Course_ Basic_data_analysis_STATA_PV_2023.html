@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="content-type">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<title>Basic Course of Data Analysis with STATA</title><!-- import bootstrap =-->
+	<link href="bootstrap.css" rel="stylesheet" type="text/css"><!-- import our own stylesheet =-->
+	<link href="styles.css" rel="stylesheet" type="text/css"><!-- Import GIMP's stylesheets
+    <link rel="stylesheet" type="text/css" href="./GIMPcss/page.css">    <link rel="stylesheet" type="text/css" href="./GIMPcss/downloads.css">    <link rel="stylesheet" type="text/css" href="./GIMPcss/normalize.css">    <link rel="stylesheet" type="text/css" href="./GIMPcss/grid.css">    <link rel="stylesheet" type="text/css" href="./GIMPcss/gimp.css">    <link rel="stylesheet" type="text/css" href="./GIMPcss/font-awesome.min.css">    <link rel="stylesheet" type="text/css" href="./GIMPcss/pygments-default.css">    <link rel="stylesheet" href="./GIMPcss/tipuesearch.css">   =-->
+	<!-- import jQuery -->
+	<base target="_blank">
+	<meta content="Santi" name="author">
+	<meta content="A static web page for the VHIR UEB Statistics Course to be taught in 2023" name="description">
+	<meta content="Basic course Data Analysis with Stata" name="keywords">
+</head>
+<body style=" color: white;">
+	<div id="pushPage">
+		<div class="container title">
+			<div class="row clearfix">
+				<div class="column full">
+					<h1>Curs Basic d'Análisi de dades amb Stata. Parc Salut Pere Virgili  (2023)</h1>
+				</div>
+			</div>
+		</div>
+		<p></p>
+		<p></p>
+		<div class="container"><img alt="Vall d'Hebron" height="75" src="UEBimages/4logosVHGRBIO.png"></div>
+		<p></p>
+		<p></p>
+		<div class="containerJust">
+			<h2>Informació del curs</h2>
+			<div class="containerJust">
+				<h3><u>Objectius</u></h3>
+				<p><br>
+				La recerca biomèdica té una component quantitativa important i els investigadors necessiten sovint poder processar i analitzar les dades que recullen o generen en els seus estudis.  Existeixen diversos softwares per l’anàlisi de dades. Entre ells Stata es un dels més utilitzats en el àmbit de la recerca clínica per disposar d’un gran nombre e mètodes incorporat, on totes les versions son compatibles, una gran suport en la comunitat i amb una ràpida i senzilla corba d’aprenentatge. </p>
+                <p> L'objectiu del curs és introduir a l'alumnat em la forma de treballar de Stata i el seu llenguatge. S'introduirà a l'alumne en continguts de forma pràctica amb exemples i finalment s'efectuarà un exercici de repàs dels continguts.</p>
+			</div>
+			<p></p>
+			<p></p>
+			<div class="containerJust">
+				<h3><u>Metodologia</u></h3>
+			</div>
+			<p>El curs s’impartirà de forma presencial be en un aula informàtica o amb els ordinadors dels alumnes on ha d’estar instal·lat el programari Stata.</p>
+     		<p> La metodologia serà de caire teòrico-pràctic. En cada sessió es combinaran la introducció de instruccions de Stata amb la execució pràctica de la misma i la interpretació dels resultats amb un breu repàs dels conceptes estadístics necessàries.</p>
+			<div class="containerJust">
+				<h3><u>Professorat</u></h3>
+			</div>
+			<p>>El curs estàra impartit per Santi Pérez-Hoyos, cap  de la Unitat d'Estadística i Bioinformàtica (UEB) del Vall d'Hebron Institut de Recerca (VHIR)
+			</p>
+			<div class="containerJust">
+				<h3><u>Continguts del curs</u></h3>
+				
+						<ol>
+						<li>Introducció a l’Stata</li>
+							<ol>
+							<li type=a>Característiques generals.</li>
+							<li type=a>Menús</li>
+							<li type=a>Ajuda,</li>
+							<li type=a>Forma de treball en Stata</li>
+							</ol>
+						<li>Gestió de Arxius en Stata</li>
+							<ol>
+							<li  type=a>Entrada de dades</li>
+							<li  type=a>Obrir i desar dades</li>
+							<li  type=a>Combinar dades</li>
+							</ol>
+						<li>Manipulació de dades amb Stata</li>
+							<ol>
+							<li  type=a>Definir i etiquetar variables</li>
+							<li  type=a>Transformar i recodificar variables</li>
+							<li  type=a>Crear noves variables</li>
+							<li  type=a>Control de duplicats</li>
+							</ol>
+						<li>Exercici Pràctic</li>
+						<li>Estadística descriptiva</li>
+							<ol>
+							<li  type=a>Estadístics descriptius</li>
+							<li  type=a>Mitjanes,Medianes, Intervals de Confiança,Percentils</li>
+							<li  type=a>Gràfics descriptius variables cuantitatives</li>
+							<li  type=a>Taules de contingència</li>
+							<li  type=a>Taules epidemiológiques (incidència prevalença)</li>
+							<li  type=a>Gráfics descriptius variables qualitatives</li>
+							</ol>
+						<li>Grandària Mostral</li>
+							<ol>
+							<li  type=a>Càlcul de la grandaria mostral</li>
+							<li  type=a>Càlcul del poder</li>
+							<li  type=a>Generació de nombres aleatoris</li>
+							</ol>
+						<li>Exercici Pràctic</li>
+						<li>Estimació i contrast d’hipòtesi</li>
+							<ol>
+							<li  type=a>Test per una mostra t-test</li>
+							<li  type=a>Test per 2 mostres. T-test-Mann-Whitney</li>
+							<li  type=a>Test per 3 o mes mostres:Anova,Kruskal Wallis</li>
+							<li  type=a>Probes de Normalitat</li>
+							<li  type=a>Test per variables qualitatives: Ji-cuadrat</li>
+							</ol>
+						<li>Correlació i Regressió</li>
+							<ol>
+							<li  type=a>Introducció a la Correlació</li>
+							<li  type=a>Introducció a la regressió lineal simple</li>
+							<li  type=a>Gràfics de dispersió</li>
+							</ol>
+						<li>Exercici Pràctic</li>
+						<li>Regressió lineal</li>
+							<ol>
+							<li  type=a>Correlació</li>
+							<li  type=a>Regressió Lineal</li>
+							<li  type=a>Diagnòstics de regressió</li>
+							<li  type=a>Us de variables categòriques</li>
+							<li  type=a>Exercici pràctic</li>
+							</ol>
+						<li>Regressió logística</li>
+							<ol>
+							<li  type=a>Estimació del model</li>
+							<li  type=a>Interpretació dels resultats (OR)</li>
+							<li  type=a>Exercici pràctic</li>
+							</ol>
+
+						<li>Anàlisi de Supervivència</li>
+							<ol>
+							<li  type=a>Preparació de dades de supervivència: stset</li>
+							<li  type=a>Anàlisis descriptiu de dades de supervivència</li>
+							<li  type=a>Estimador de Kaplan-Meier</li>
+							<li  type=a>Estimació de la funció de Risc</li>
+							<li  type=a>Gràfics de supervivència</li>
+							<li  type=a>Ajust del model de Cox</li>
+							<li  type=a>Exercici pràctic</li>
+							</ol>
+						</ol>	
+				<p></p>
+			</div>
+			<p></p>
+			<p></p>
+			<div class="containerJust">
+				<h3><u>Dates i localització</u></h3>
+			</div>
+			<p>El curs té una durada de  12 hores en quatre sessions de 3 hores en novembre de 2023. Els dilluns 20 i dijous 23 de 15:30 a 18:30 i el dilluns 27 i dijous 30 de 15h a 18h </p>
+			<p></p>
+		</div>
+		<p></p>
+	</div>
+	<hr>
+	<p></p>
+	<div class="containerJust">
+		<h2><u>Materials del curs</u></h2>
+		
+		
+		<div class="containerJust">
+			<h4>Sessió 1. Introducció a l'Stata. Gestió i manipulació de dades. </h4>
+		</div>
+		<ul>
+			<li>
+				<a href="https://github.com/uebvhir/Course_Basic_data_analysis_with_Stata/raw/master/Slides/sessio_1_stata_basic.pdf">Sessió 1 Stata</a>
+			</li>
+			
+		</ul>	
+			
+			
+			<li>Datasets</li>
+			<li style="list-style: none; display: inline">
+				<ul>
+					<li>
+						<a href="https://raw.githubusercontent.com/uebvhir/uebvhir.github.io/master/datasets/osteoporosis.csv">Osteoporosis (csv)</a>
+					</li>
+					<li>
+						<a href="https://github.com/uebvhir/uebvhir.github.io/raw/master/datasets/diabetes.xls">Diabetes (Excel)</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+
+		
+</body>
+</html>
