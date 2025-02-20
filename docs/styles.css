@@ -1,0 +1,13 @@
+/* styles.css */
+.distill-site-nav {
+  background-color: #993489; /* Color de fondo de la navbar */
+  color: white; /* Color del texto en la navbar */
+}
+
+.distill-site-nav a {
+  color: white; /* Color del texto de los enlaces en la navbar */
+}
+
+.distill-site-nav a:hover {
+  color: #f1c40f; /* Color del texto de los enlaces al pasar el mouse */
+}

@@ -1,0 +1,21 @@
+{
+  "articles": [
+    {
+      "path": "about.html",
+      "title": "About this site",
+      "description": "Some additional details about the website",
+      "author": [],
+      "contents": "\r\n\r\n\r\n\r\n",
+      "last_modified": "2025-02-19T08:38:33+01:00"
+    },
+    {
+      "path": "index.html",
+      "title": "Unidad de Estadística",
+      "description": "Bienvenido a la Unidad de Estadística. Aquí encontrarás recursos y materiales para el aprendizaje y la enseñanza de la estadística.\n",
+      "author": [],
+      "contents": "\r\n\r\n\r\nBotones de Navegación\r\nPuedes acceder a las siguientes secciones haciendo clic en los botones a continuación:\r\nTemplates Teaching Shinyapp\r\nSolicitud de servicio\r\nShinyapp\r\nAcerca de Nosotros\r\nblablablabla\r\nContacto\r\nSi tienes alguna pregunta o necesitas más información, no dudes en contactarnos a través de nuestro correo electrónico: ueb@vhir.org\r\n\r\n\r\n\r\n",
+      "last_modified": "2025-02-20T13:11:32+01:00"
+    }
+  ],
+  "collections": []
+}
