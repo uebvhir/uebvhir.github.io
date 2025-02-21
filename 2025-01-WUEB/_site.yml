@@ -1,0 +1,22 @@
+name: "distill-example"
+title: "Unitat d'Estadística i Bioinformàtica"
+description: |
+  Example website built with Distill
+output_dir: "docs"
+navbar:
+  logo: "images/Logo_VHIR_HUVH_blanco_JMC.png"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Articles"
+      menu:
+        - text: "A simple example"
+          href: first-article-example.html
+    - text: "About"
+      href: about.html
+  right:
+    - icon: fab fa-github
+      href: https://github.com/jhrcook/distill-example
+    - icon: fab fa-twitter
+      href: https://twitter.com/JoshDoesA
+output: distill::distill_article
