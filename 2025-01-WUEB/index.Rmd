@@ -40,5 +40,5 @@ If you need any of the services offered by the VHIR Statistics and Bioinformatic
 
 # Contact
 
-If you have any questions or need more information, please feel free to reach out to us via email at ueb@vhir.org
+If you have any questions or need more information, contact us via email at ueb@vhir.org
 
