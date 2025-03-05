@@ -139,4 +139,16 @@ body {
   transform: scale(1.05);
 }
 
+/* Ajustar el ancho del contenido al 100% */
+.main-container {
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
+/* Ajustar el ancho del contenido de los artículos */
+.distill-article {
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
 

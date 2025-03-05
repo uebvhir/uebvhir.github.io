@@ -8,10 +8,17 @@ navbar:
   left:
     - text: "Home"
       href: index.html
-    - text: "Articles"
-      menu:
-        - text: "A simple example"
-          href: first-article-example.html
+    - text: "Teaching"
+      href: teaching_new_v2.html
+    - text: "Manuals"
+      # menu:
+      #   - text: "Paquets UEB"
+      #     href: funcions_propies_distill.html
+      #   - text: "Paquests UEB dist"
+      #     href: funcions_propies.html
+      href: manuals.html
+    - text: "uebnet"
+      href: uebnet.html
     - text: "About"
       href: about.html
   right:

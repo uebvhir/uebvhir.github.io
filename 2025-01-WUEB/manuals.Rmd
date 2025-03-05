@@ -1,0 +1,76 @@
+---
+title: "UEB Learning modules"
+# description: ""
+# author: "UEB@VHIR"
+date: "`r Sys.Date()`"
+output_dir: "docs"
+output:
+  distill::distill_article:
+    toc: false
+    toc_depth: 2
+    fig_width: 8
+    fig_height: 5
+    # highlight: "textmate"
+    theme: "default"
+    self_contained: true
+    css: styles.css
+---
+
+<style> 
+.highlight-box { background-color: #f8f9fa; border-left: 5px solid #ffc107; padding: 20px; margin: 20px 0; text-align: center; font-size: 1.5em; font-weight: bold; } 
+.highlight-box ul { text-align: center; font-size: 0.9em; font-weight: normal; margin-top: 10px; list-style-type: none; padding-left: 0; } 
+.two-columns { display: flex; justify-content: space-between; margin: 10px 0; } 
+.columns {   width: 48%;   text-align: left;}
+.column_all {   width: 100%;   text-align: left;}
+.column-left {  text-align: left; /* Alineación a la izquierda */
+    border-right: 3px solid #000; /* Línea vertical negra de 5px de grosor */
+  padding-right: 20px; /* Espacio para que el texto no toque la línea */
+   width: 48%;}
+.column-right { text-align: left; /* Alineación a la derecha */
+   width: 48%;
+   padding-left: 20px}
+
+.center-title { text-align: center; margin: 40px 0 20px 0; font-size: 1.8em; font-weight: bold; } 
+
+</style>
+
+</ul> </div><div class="two-columns">
+
+<div class="column-left" style="font-size: 15px;"> 
+
+
+## R Modules
+
+### [Scripts](https://www.dropbox.com/scl/fo/0ykc3zwtu6qov2bls0c7q/h?rlkey=n06dqathg9byqklclsb5n9knj&st=x4h6g1gi&dl=0)
+
+- Anàlisi descriptiu
+  - [Script](manuals_docs/descriptius.Rmd)
+  - [Manual](manuals_docs/descriptius.html)
+  
+- Anàlisi comparatiu
+  - [Script](manuals_docs/comparacions.Rmd)
+  - [Manual](manuals_docs/comparacions.html)
+
+- Anàlisi longitudinal
+  - [Script](manuals_docs/longitudinal.Rmd)
+  - [Manual](manuals_docs/longitudinal.html)
+  
+- Anàlisi supervivencia
+  - [Script](manuals_docs/supervivencia.Rmd)
+  - [Manual](manuals_docs/supervivencia.html)
+  
+ </div> 
+
+<div class="column-right" style="font-size: 15px;"> 
+
+## Packages
+
+### Statistics
+
+- [Viñeta mmotaF y anaStatsUEB](funcions_propies.html)
+
+- [mmotaF](https://github.com/miriamMota/mmotaF)
+
+- [anaStatsUEB](https://github.com/uebvhir/anaStatsUEB)
+
+</div>
