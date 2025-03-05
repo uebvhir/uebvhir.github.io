@@ -26,4 +26,6 @@ navbar:
       href: https://github.com/uebvhir
     - icon: fab fa-twitter
       href: https://vhir.vallhebron.com/es/apoyo-la-investigacion/unidad-de-estadistica-y-bioinformatica-ueb
+    # - icon: fab fa-users
+    #   href: uebnet.html
 output: distill::distill_article

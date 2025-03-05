@@ -16,7 +16,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ```
 
-
+<i class="fas fa-user"></i>
 
 # Statistics and Bioinformatics Unit
 
