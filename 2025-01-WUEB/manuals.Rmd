@@ -67,7 +67,7 @@ output:
 
 ### Statistics
 
-- [Viñeta mmotaF y anaStatsUEB](manuals_docs/funcions_propies.html)
+- [Vignette](manuals_docs/funcions_propies.html)
 
 - [mmotaF](https://github.com/miriamMota/mmotaF)
 
