@@ -1,0 +1,31 @@
+---
+title: "UEBnet"
+# description: ""
+# author: "UEB@VHIR"
+date: "`r Sys.Date()`"
+output_dir: "docs"
+output:
+  distill::distill_article:
+    toc: false
+    toc_depth: 2
+    fig_width: 8
+    fig_height: 5
+    # highlight: "textmate"
+    theme: "default"
+    self_contained: true
+    css: styles.css
+---
+
+
+<head>
+  <script type="text/javascript">
+    var password = "MainHead"; // Cambia 'miContraseña' por la contraseña que prefieras
+    var pass = prompt("Introduce la contraseña:");
+    if (pass != password) {
+      window.location = "about:blank"; // Si la contraseña es incorrecta, redirige a una página en blanco
+    }
+  </script>
+</head>
+
+
+[R_UEB_preproces](https://www.dropbox.com/scl/fi/p89esko25eppw6aks6f1x/R_UEB_preproces.html?rlkey=7merhl607w1k911c8il6lscxm&st=brkecwky&dl=0)

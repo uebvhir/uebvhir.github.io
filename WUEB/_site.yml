@@ -1,0 +1,31 @@
+name: "distill-example"
+title: "Unitat d'Estadística i Bioinformàtica"
+description: |
+  Example website built with Distill
+output_dir: "docs"
+navbar:
+  logo: "images/Logo_VHIR_HUVH_blanco_JMC.png"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Teaching"
+      href: teaching.html
+    - text: "Manuals"
+      # menu:
+      #   - text: "Paquets UEB"
+      #     href: funcions_propies_distill.html
+      #   - text: "Paquests UEB dist"
+      #     href: funcions_propies.html
+      href: manuals.html
+    - text: "uebnet"
+      href: uebnet.html
+    - text: "About"
+      href: about.html
+  right:
+    - icon: fab fa-github
+      href: https://github.com/uebvhir
+    - icon: fab fa-twitter
+      href: https://vhir.vallhebron.com/es/apoyo-la-investigacion/unidad-de-estadistica-y-bioinformatica-ueb
+    # - icon: fab fa-users
+    #   href: uebnet.html
+output: distill::distill_article

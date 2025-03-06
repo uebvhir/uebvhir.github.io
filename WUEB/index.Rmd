@@ -1,0 +1,46 @@
+---
+title: "Welcome to the UEB!"
+site: distill::distill_website
+# output_dir: "docs"
+css: styles.css
+theme:
+  primary-color: "#993489"
+  background-color: "#FFFFFF"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+# Learn more about creating websites with Distill at:
+# https://rstudio.github.io/distill/website.html
+
+```
+
+
+
+# Statistics and Bioinformatics Unit
+
+The Statistics and Bioinformatics Unit (UEB) was set up in 2008, as part of the Scientific and Technical Support Area’s units at the Vall d’Hebron Research Institute (VHIR). Its mission is to provide expert advice, services and training for clinical and biomedical research mainly in the areas of statistics and bioinformatics.
+
+<!-- # We do -->
+
+<!-- Puedes acceder a las siguientes secciones haciendo clic en los botones a continuación: -->
+
+
+<a href="teaching.html" target="_blank" class="button-custom">Teaching</a> <a href="https://ueb-vhir.shinyapps.io/zz_dashboard/"  target="_blank" class="button-custom"> UEB Dashboard demos</a> <a href="http://uebshiny.vhir.org:3838/" target="_blank" class="button-custom">Apps</a>
+
+<!-- <a href="https://uebvhir.github.io/teaching" target="_blank" class="button-custom">Manuals</a>  -->
+
+
+# Service Request
+
+If you need any of the services offered by the VHIR Statistics and Bioinformatics Unit (UEB), register your request in the following form.
+
+  <!-- <a href="https://plataformes.vhir.org/extranet/webUEB/Alta.aspx" class="btn btn-primary" style="background-color: #993489; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-left: 10px;">Go to the form</a> -->
+
+<a href="https://plataformes.vhir.org/extranet/webUEB/Alta.aspx" target="_blank" class="button">Go to the form</a>
+
+# Contact
+
+If you have any questions or need more information, contact us via email at ueb@vhir.org
+
