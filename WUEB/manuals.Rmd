@@ -41,7 +41,7 @@ output:
 
 ## R Modules
 
-### [Scripts](https://www.dropbox.com/scl/fo/0ykc3zwtu6qov2bls0c7q/h?rlkey=n06dqathg9byqklclsb5n9knj&st=x4h6g1gi&dl=0)
+### [Statistics](https://www.dropbox.com/scl/fo/0ykc3zwtu6qov2bls0c7q/h?rlkey=n06dqathg9byqklclsb5n9knj&st=x4h6g1gi&dl=0)
 
 - Anàlisi descriptiu
   - [Script](manuals_docs/descriptius.Rmd)
@@ -75,6 +75,8 @@ output:
 - [anaStatsUEB](https://github.com/uebvhir/anaStatsUEB)
 
 ### [Bioinformatics]()
+
+- [maUEB](https://github.com/uebvhir/maUEB)
 
 
 
