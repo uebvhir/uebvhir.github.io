@@ -9,7 +9,7 @@ navbar:
     - text: "Home"
       href: index.html
     - text: "Teaching"
-      href: teaching_new_v2.html
+      href: teaching.html
     - text: "Manuals"
       # menu:
       #   - text: "Paquets UEB"
