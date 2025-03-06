@@ -1,0 +1,45 @@
+{
+  "articles": [
+    {
+      "path": "about.html",
+      "title": "About us",
+      "description": "You can contact us in the following ways\n",
+      "author": [],
+      "contents": "\r\n\r\n\r\n\r\nSantiago Pérez Hoyos\r\nHead of the Statistics and Bioinformatics Unit\r\n📧 Contacto\r\n\r\n\r\nMireia Ferrer Almirall\r\nResponsible of the Bioinformatics Platform\r\n📧 Contacto\r\n\r\n\r\nMiriam Mota Foix\r\nBiostatistics Technician\r\n📧 Contacto\r\n\r\n\r\nEsther Camacho\r\nBioinformatics Technician\r\n📧 Contacto\r\n\r\n\r\nAnna Sanjuan\r\nProject Manager\r\n📧 Contacto\r\n\r\n\r\nBerta Miró\r\nProject Manager\r\n📧 Contacto\r\n\r\n\r\n\r\n\r\n\r\n\r\nCONTACT US  \r\n\r\n\r\n\r\n",
+      "last_modified": "2025-03-06T12:17:18+01:00"
+    },
+    {
+      "path": "index.html",
+      "title": "Welcome to the UEB!",
+      "author": [],
+      "contents": "\r\nStatistics and Bioinformatics Unit\r\nThe Statistics and Bioinformatics Unit (UEB) was set up in 2008, as part of the Scientific and Technical Support Area’s units at the Vall d’Hebron Research Institute (VHIR). Its mission is to provide expert advice, services and training for clinical and biomedical research mainly in the areas of statistics and bioinformatics.\r\n\r\n\r\nTeaching  UEB Dashboard demos Apps\r\n\r\nService Request\r\nIf you need any of the services offered by the VHIR Statistics and Bioinformatics Unit (UEB), register your request in the following form.\r\n\r\nGo to the form\r\nContact\r\nIf you have any questions or need more information, contact us via email at ueb@vhir.org\r\n\r\n\r\n\r\n",
+      "last_modified": "2025-03-06T12:17:30+01:00"
+    },
+    {
+      "path": "manuals.html",
+      "title": "UEB Learning modules",
+      "author": [],
+      "date": "`r Sys.Date()`",
+      "contents": "\r\n",
+      "last_modified": "2025-03-06T12:16:54+01:00"
+    },
+    {
+      "path": "teaching.html",
+      "title": "Teaching Activities at the UEB",
+      "description": "Welcome to the Statistics and Bioinformatics Unit Teaching Activities web site. This page links with the web pages of different courses we are teaching right now or have taught in the past. In these pages you will find all the materials we use for the courses -unless of course they are copyrighted or under some type of confidentiality.",
+      "author": [],
+      "date": "`r Sys.Date()`",
+      "contents": "\r\n\r\n\r\n\r\n\r\nCurrent Activity\r\n2025-03: Sessió Bases de dades en REDCAP per infermeria\r\n\r\n\r\nPast Courses\r\n2023\r\nBioinformatics course for Biomedical Research. VHIR\r\nBasic Course of Data Analysis with STATA. PSPV\r\nBasic Statistics for Biomedical Research. PreDocs VHIR\r\n2022\r\nBasic Statistics for Biomedical Research. VHIR\r\nBioinformatics course for Biomedical Research. VHIR\r\n2021\r\nBioinformatics course for Biomedical Research. VHIR\r\nBasic Statistics for Biomedical Research. CSAPG 2021\r\nBasic Statistics for Biomedical Research. VHIO\r\nBasic Statistics for Biomedical Research. VHIR\r\n2019-2020\r\nCurso de Estadística Básica con R (PV)\r\nBasic Statistics for Biomedical Research - VHIO\r\nCurs de Bioinformàtica per a la Recerca Biomèdica\r\nBasic Statistics for Biomedical Research - VHIO\r\nBasic Statistics for Biomedical Research\r\nSessió formativa Servei Otorrino\r\nBioinformatics for clinical and biomedical research\r\nData Management, Programming and Graphics with R\r\nPast Pindoles\r\n2022\r\n29/04/2022: Propensity Score\r\n25/02/2022: Introducció a l’Estadística Bayesiana\r\n2020\r\n01/2020: Visualització moderna de dades\r\n16/12/2019: Ajustos per multiple testing\r\n2019\r\n28/02/2020: Busqueu la fama, i aquí és on aneu a començar a pagar: Estratègies per a la construcció de models i biomarcadors\r\n15/01/2020.Visualització moderna de dades\r\n16/12/2019. Ajustos per multiple testing Quan? per què? com?\r\n21/10/2019. Sobre correlació i associació\r\n27/09/2019. Odds-ratio, riscos relatius, riscos absoluts….Endreçant les idees\r\n28/06/2019. La crisi de la significació estadística: què diuen i què no diuen els p-valors\r\n26/04/2019.Us de REDCap per a la recollida i tractament de dades en la Recerca al Campus de Vall d’Hebron\r\n\r\n\r\nMore Teaching\r\n\r\n\r\nSeminars & Special Sessions\r\nSample size in animal studies - CEEA 29/11/2023\r\nHow to set up a container using DOCKER - HUB seminar 23/11/2023\r\n\r\n<\r\n\r\n\r\n\r\n",
+      "last_modified": "2025-03-06T12:16:43+01:00"
+    },
+    {
+      "path": "uebnet.html",
+      "title": "UEBnet",
+      "author": [],
+      "date": "`r Sys.Date()`",
+      "contents": "\r\n\r\nR_UEB_preproces\r\n\r\n\r\n\r\n",
+      "last_modified": "2025-03-06T12:17:08+01:00"
+    }
+  ],
+  "collections": []
+}

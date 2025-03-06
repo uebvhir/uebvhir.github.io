@@ -1,0 +1,312 @@
+---
+title: "Plantilla descriptius"
+author: 
+    name: "Estela Ariza Moral - Unitat d'Estadística i Bioinformàtica (UEB)"
+    affiliation   : "Unitat d'Estadística i Bioinformàtica - Vall d'Hebron Institut de Recerca (VHIR)"
+    email         : "estela.ariza@vhir.org"
+css: Rcode/custom.css
+date: "`r format(Sys.time(), '%d %B, %Y')`" 
+output:
+  rmdformats::readthedown:
+    thumbnails: false
+    lightbox: true
+    gallery: true
+    highlight: tango
+    mathjax: "rmdformats"
+    theme: flatly
+    toc_depth: 6
+    number_sections: yes
+    fig_caption: TRUE
+    use_bookdown: true
+    df_print: paged
+editor_options: 
+  chunk_output_type: console
+---
+
+```{=html}
+<style>
+body {
+text-align: justify}
+</style>
+```
+<!-- # css: styles.css -->
+
+<!-- https://cran.r-project.org/web/packages/rmdformats/vignettes/introduction.html -->
+
+<hr>
+
+[VHIR-UEB-for-019v.01]{style="color:#ac39ac"} <br>
+
+# Introducció
+
+Aquesta plantilla mostra un exemple d'anàlisi **descriptiva**, una anàlisi bàsica que pot servir de base d'anàlisis més complexes. És una tècnica que s'utilitza per a resumir i descriure de manera objectiva i neutral les dades a analitzar. Normalment, es realitza per a conèixer les característiques de la població d'estudi i es basa en taules de freqüències i en mesures estadístiques (mitjana, desviació, mediana, etc) i gràfics que descriuen la tendència central i la variabilitat.
+
+Per a poder començar amb aquesta anàlisi en programari R, hem de seguir uns passos previs: identificar i instal·lar els paquets necessaris, importar la base de dades, explorar les dades i dur a terme tots els canvis pertinents en les variables i valors erronis. Després d'aquests passos, ja es pot procedir a l'anàlisi descriptiva.
+
+En aquest exemple utilitzarem la base de dades **hta (Hipertensió arterial)**.
+
+# Instalació de paquets
+
+```{r, echo = FALSE, results = 'hide', message = F,warning=FALSE}
+require(knitr)
+# include this code chunk as-is to set options
+opts_chunk$set(ommcent = NA, prompt = TRUE, tidy = FALSE, fig.width = 7, fig.height = 7,echo = TRUE, message = FALSE, warning = FALSE)
+Sys.setlocale("LC_TIME", "C")
+```
+
+Les versions noves dels paquets *knitr* i *kableExtra* donen problemes, per tant, per a poder instal·lar versions anteriors, desinstal·lem el paquet i a continuació utilitzem una de les dues funcions per a instal·lar paquets:
+
+-   `install_version()` del paquet *remotes*, que busca versions específiques del paquet demanat en repositoris de paquets i els instal·la. Per a poder utilitzar la funció cal especificar el nom del paquet (package) i la versió (version) a instal·lar i el repositori (repos), que en aquest cas és el repositori CRAN. Recomanat no actualitzar les dependències.
+
+```{r, eval=FALSE}
+remove.packages("knitr") ## eliminem la versió que tinguem
+require(remotes)  ## cridem paquet
+remotes::install_version(package ="knitr", version ="1.43", repos=getOption("repos"))
+```
+
+-   `install.packages()` del paquet *utils*, que descarrega o instal·la paquets de repositoris o d'arxius locals. Per a utilitzar la funció especifiquem que no busqui cap repositori (repos) i introduïm manualment la ruta de l'arxiu (pkgs) i el tipus de ruta (type).
+
+```{r, eval=FALSE}
+remove.packages("kableExtra") 
+require(utils)
+packageurl <- "https://cran.r-project.org/src/contrib/Archive/kableExtra/kableExtra_1.3.4.tar.gz"
+utils::install.packages(pkgs = packageurl, repos = NULL,type = "source")
+```
+
+Ara instal·lem i/o carreguem els altres paquets que necessitem. Els paquets creats per la UEB han estat baixats del github.
+
+```{r packages}
+# install.packages("devtools")
+require(devtools)
+
+# install_github("miriammota/mmotaF")
+require(mmotaF)
+
+# install_github("uebvhir/anaStatsUEB")
+require(anaStatsUEB)
+
+# install.packages("pacman")
+require(pacman)
+
+
+pacman::p_load(rmdformats, rio, tidyr, stats, rstatix, rmarkdown, htmlTable, 
+               grid, gridExtra, patchwork, ggpubr, gghalves, dplyr, magrittr, 
+               forcats, nlme, skimr, sjPlot, plotmo, jtools, modelsummary, 
+               gtsummary, ggstats, ggplot2)
+
+```
+
+# Lectura i exploració de les dades
+
+En el següent codi, s'utilitza la funció `import` del paquet *rio* per a carregar les dades que han estat descarregades del gitHub. Entre cometes s'especifica on es troben les dades guardades a l'ordinador, i si cal el tipus de format i la classe de l'arxiu.
+
+```{r lecturadades}
+name_file <- "hta.xls" # guardem el nom del archiu on estan les dades
+dat <- import(paste0("dades/", name_file),encoding = "UTF-8") # amb aquesta funció importem el data.frame de l'arxiu segons l'extensió de l'arxiu
+```
+
+Fem una petita exploració inicial de les 10 primeres files per donar-nos una idea de com és l'estructura de les dades.
+
+```{r}
+(dat_orig <- dat) # guardem una copia de les dades originals
+```
+
+Les dades que utilitzem com a exemple han estat descarregades en format ".xlsx" i provenen de l'arxiu `r name_file`. Obtenim un *data frame* composat per un total de `r nrow(dat)` pacients (files) y `r ncol(dat)` variables (columnes).
+
+Un *data frame* pot contenir diferents tipus de dades: numèriques (1, 2, 3 o 12.4, 15.0), caràcter ("Hola", "Id104"), factor (Si, No o A, B, C) i lògiques (TRUE/FALSE).
+
+Les variables que tenim al *data frame* són les següents:
+
+-   `numero`: variable numèrica que correspon a l'identificador del pacient
+-   `sexo`: variable caràcter que indica el sexe amb valors VARON i MUJER
+-   `grupo`: variable caràcter que indica el grup de seguiment amb valors A i B
+-   `tas1 a tas12`: variables numèriques que corresponen a valors de pressió sistòlica en 12 temps diferents
+-   `tad1 a tad12`: variables numèriques que corresponen a valors de pressió diastòlica en 12 temps diferents
+
+**Canvis que hem de fer en les variables:** canviar els noms perquè segueixin els estàndards, assignar a l'identificador de registre el nom "id" i convertir-lo a tipus caràcter, convertir a tipus factor *sexo* i *grupo*, i eliminar aquelles variables que no s'utilitzaran.
+
+La funció `clean_names()` del paquet *janitor* s'utilitza per a netejar els noms de les columnes, és a dir, canvia les majúscules a minúscules, elimina els accents, substitueix els espais per guions baixos i més.
+
+La funció `rename()` del paquet *dplyr* canvia els noms de les variables individualment (new_name = "old_name").
+
+La funció `mutate_at()` del paquet *dplyr* transforma múltiples variables seleccionades a partir d'un vector amb el nom d'aquestes variables. Si volem transformar totes les variables d'un *data frame* podem utilitzar `mutate_all()` o si volem transformar un conjunt de variables amb una condició utilitzarem `mutate_if()`. Una transformació seria passar de variable factor a caràcter amb `as.character()` o viceversa amb `as.factor()` del paquet *base*.
+
+La funció `NAperc()$var` del paquet *mmotaF* dona el nom d'aquelles variables amb més de X percentatge de valors faltants.
+
+```{r}
+## Canviem els noms de les variables per a que segueixin els estandars 
+dat <- janitor::clean_names(dat)
+
+## Assignem al identificador de registre el nom 'id'
+dat<- dat %>% rename(id = "numero")
+
+## variables CARACTER
+var_char <- names(dat %>% select(id)) 
+dat <- dat %>% mutate_at(var_char,as.character)
+
+## variables FACTOR
+var_fact <- names(dat %>% select(sexo, grupo))
+dat <- dat %>% mutate_at(var_fact,as.factor)
+
+## seleccionem variables amb un 95% de valors faltants
+var_del <- NAperc(dat, maxNA = 95)$var 
+dat <- dat %>% select(-var_del)
+
+```
+
+Tornem a fer l'exploració de les dades una vegada fets els canvis per comprovar que tot estigui correcte, però ara amb la funció `str()` del paquet *utils*, que mostra de manera comprimida l'estructura interna del *data frame* (noms i tipus de variables amb els respectius nivells en el cas de les variables tipus factor).
+
+```{r}
+str(dat)
+```
+
+Identifiquem i agrupem les variables:
+
+```{r}
+var_tas <- grep("tas", names(dat), value = T) # variables que contenen "tas" al nom
+var_tad <- grep("tad", names(dat), value = T) # variables que contenen "tad" al nom
+var_names <- names(dat) # nom de totes les variables
+var_group <- c("sexo", "grupo") # variables grupo
+var_select <- c("sexo", "grupo","tas1","tad1") # variables seleccionadas
+var_long <- c("tas","tad") # Variables longitudinales a analizar
+var_id <- "id" # Identificador del subjecte
+var_event = "Tiempo" # Temps de seguiment ( factor)
+```
+
+Si tenim diferents mesures per a una mateixa variable (mesures repetides), com és el cas de les variables *tas* i *tad*, és necessari transformar aquestes variables de format ample a llarg, o sigui passar de x columnes amb valors, a 1 columna amb el nom de les x columnes anteriors com a etiquetes i 1 columna amb els valors. S'ha de tenir en compte que si tenim més d'una variable a transformar, cal realitzar els següents passos per a cadascuna d'elles:
+
+-   Convertir tota la base de dades a format llarg amb la funció `gather()` del paquet *tidyr* indicant quines són les columnes amb els valors a transformar i el nom de les columnes on aniran les etiquetes i els valors, obtenint una nova base de dades.
+
+-   Si la nova columna amb etiquetes, té una part comuna que volem eliminar, com per exemple: es repeteix el nom de la variable a transformar o hi ha un tipus de patró, ho podem fer amb la funció `str_remove()` del paquet *stringr*, on només cal indicar la columna (string) i el que volem eliminar (pattern).
+
+Finalment, fusionem les noves bases de dades obtingudes de *tas* i *tad* en un altre *data frame* utilitzant la funció `merge()` del paquet *data.table* i verifiquem que cada variable estigui en el format adequat. Per facilitar i accelerar la unió, és important que les columnes amb noms idèntics en ambdues bases de dades continguin les mateixes dades; en cas contrari, seran introduïdes amb noms diferents i caldrà revisar-les i eliminar-les més endavant.
+
+(Només agafem els pacients que tenen totes les dades)
+
+```{r}
+
+# Convertim els valors de "tas" a format llarg
+dat_tas <- gather(dat[complete.cases(dat),],key = "Tiempo", value = "tas",var_tas)
+
+# seleccionem les columnes necessaries
+dat_tas <- select(dat_tas,c("id", "sexo", "grupo", "Tiempo", "tas")) 
+
+# eliminem la part comuna de les etiquetes
+dat_tas$Tiempo <- str_remove(dat_tas$Tiempo,"tas") 
+
+# Repetim els pasos anteriors amb els valors de "tad"
+dat_tad <- gather(dat[complete.cases(dat),],key = "Tiempo", value = "tad",var_tad)
+dat_tad <- select(dat_tad,c("id", "sexo", "grupo", "Tiempo", "tad"))
+dat_tad$Tiempo <- str_remove(dat_tad$Tiempo,"tad")
+
+# Unim les bases de dades
+dat_long <- merge(dat_tas,dat_tad)
+
+# Convertim la variables amb els temps de seguiment a factor
+dat_long$Tiempo <- as.factor(dat_long$Tiempo)
+
+# Reordenem els nivells en el cas que no siguin els correctes
+dat_long <-  reorder_levels(dat_long, Tiempo, c("1","2","3","4","5","6","7","8","9","10","11","12"))
+
+# Comprovem que l'ordre es correcte
+table(dat_long$Tiempo)
+
+```
+
+Tornem a fer l'exploració de les dades però ara amb format llarg:
+
+```{r}
+str(dat_long)
+```
+
+Tots els anàlisis han estat realitzats amb el programa estadístic "R"( `r R.Version()$versi`, Copyright (C) 2015 The R Foundation for Statistical Computing ).
+
+# Anàlisi descriptiva
+
+Una primera anàlisi descriptiva ens mostra un resum general de les dades. Aquesta anàlisi ens permet realitzar una exploració inicial de les dades i detectar possibles errors en l'entrada de dades. La funció `desc_group()` del paquet *anaStatsUEB* ens retorna una taula descriptiva llesta per a ser visualitzada en html, depenent del tipus de covariable la funció calcula diferents estadístics:
+
+-   Per a les variables **categòriques** calcula les freqüències absolutes, les relatives en percentatge i l'interval de confiança exacte al 95%.
+
+La fórmula de l'interval de confiança per a una proporció: $IC = p_x \pm z_{1-\alpha/2} \sqrt{\frac{p_x(1-p_x)}{n}}$
+
+On:
+
+-- $p = \frac{X}{n}$ és la proporció mostral o freqüència relativa,
+
+-- $X$ és la freqüència de cada categoria o absoluta
+
+-- $z$ és la puntuació z corresponent al nivell de confiança del $Q%$ on $Q=1-\alpha$, que per a $\alpha = 0.05$ és aproximadament 1.96, aquest valor només ho podem utilitzar si la variància poblacional és coneguda.
+
+-- $n$ és la mida de la mostra.
+
+-   Per a les variables **contínues** calcula la mitjana i la desviació típica -mean(sd)- amb l'interval de confiança per a la mitjana al 95% -IC[,]- i la mediana i el primer i tercer quartil -median[Q1,Q3]-.
+
+    -   **Mitjana:** suma de tots els valors dividida entre el nombre de valors, és a dir, promig de tots els valors.
+
+    La fórmula per calcular la mitjana: $\bar{X} = \frac{\sum_{i=1}^{n}{x_i}}{n}$
+
+    On:
+
+    -- $x_i$ és cada valor individual en el conjunt de dades
+
+    -   **Desviació típica:** mesura que indica quant es desvien els valors individuals del promig.
+
+    La fórmula per calcular la desviació típica és la següent: $S =\sqrt{\frac{1}{n-1}\sum_{i=1}^{n} (x_i - \bar{X})^2}$
+
+    -   **Interval de confiança:** proporciona un marge d'error dins del qual es troba la mitjana.
+
+    La fórmula per l'interval de confiança per a la mitjana al 95%: $IC = \bar{X} \pm t_{n-1,1-\alpha/2} \cdot \frac{S_x}{\sqrt{n}}$
+
+    On:
+
+    -- $t_{n-1,(1+0.95)/2}$ indica el 0.975-quantil de la distribució $t_{n-1}$ (t d'Student)
+
+    -   **Mediana:** valor que es troba al centre ordenant les dades de manera ascendent.
+
+    -   **Quartils:** valors que divideixen les dades en quatre parts iguals, per tant, el Q1 i Q3 representen respectivament el 25% i 75% de les dades.
+
+    La formula per calcular la posició d'un quartil: $Q_k = \frac{k \cdot (n+1)}{4}, \space per \space a \space k =1,3$
+
+```{r}
+res <- desc_group(covariates = var_select, data = dat)
+res$res
+
+res_g <- desc_group(covariates = "sexo", group = "grupo", data = dat,show.all = F, show.pval = F)
+res_g$res
+
+res_l <- desc_group(covariates = var_long,group = var_event, data = dat_long,
+                   show.pval = FALSE,show.n = F,show.all = F)
+res_l$res
+```
+
+Una anàlisi gràfica ens dona una millor interpretació de les dades. La funció `desc_plot()` de paquet *mmotaF* genera a partir d'un *data frame* gràfics univariants per a cadascuna de les variables que s'indiquen, depenent del tipus de covariable la funció realitza diferents tipus de gràfics, a excepció de si les variables son de tipus caracter que no en fa cap.
+
+-   Per a les variables **categòriques** realitza un diagrama de barres, on cada barra indica una categoria i l'eix vertical el percentatge, el recompte absolut es mostra en cadascuna de les categories. En el cas de tenir una variable grup, cada barra arriba fins al 100% i es divideix segons les categories de la variable grup.
+
+-   Per a les variables **numèriques** realitza un histograma o un diagrama de caixes en el cas que tinguem una variable grup.
+
+```{r}
+desc_plot(dat = dat, covariates = var_select,rowcol = c(2,2))
+
+desc_plot(covariates = "sexo", y = "grupo", dat = dat, rowcol = c(1,1))
+
+desc_plot(covariates  = var_long ,y = var_event,dat = dat_long,show.n = F, rowcol = c(1,1))
+
+```
+
+En aquest exemple veiem que hi ha més MUJER que VARON, hi ha dues persones més en el grup B respecte el A, la mitjana de tas1 és de 150.1 amb una desviació de 19.3, i la mitjana de tad1 és de 88.4 amb una desviació de 10.1.
+
+També veiem que tant en el grup A com el B hi ha més MUJER que VARON, i que les mitjanes de tas sembla que baixen fins el temps 7, peró després tornen a pujar, en canvi, les mitjanes de tad baixen fins el temps 3 i després es mantenen més o menys constants.
+
+```{r history, echo = FALSE, results = 'hide'}
+rmd <- grep(".Rmd",list.files(), value = T)
+if (length(rmd) != 1) warning("Hay mas de un fichero rmd!")
+file.copy(from = rmd, to = gsub(" ","_", paste0("hist/", gsub(".Rmd","",rmd), 
+              gsub(" ","-",gsub(":",".",Sys.time())),".Rmd")))
+
+name_dict <- "dictionaries.Rda"
+if (file.exists(paste0("dades/",name_dict) )) {
+  file.copy(from = paste0("dades/",name_dict), to = paste0("hist/dict/", 
+      gsub(".Rnw","",name_dict) ,gsub(" ","-",gsub(":",".",Sys.time())),".Rda"))
+}
+```

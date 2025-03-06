@@ -1,0 +1,152 @@
+---
+title: "Teaching Activities at the UEB"
+description: "Welcome to the Statistics and Bioinformatics Unit Teaching Activities web site. This page links with the web pages of different courses we are teaching right now or have taught in the past. In these pages you will find all the materials we use for the courses -unless of course they are copyrighted or under some type of confidentiality."
+# author: "UEB@VHIR"
+date: "`r Sys.Date()`"
+output_dir: "docs"
+output:
+  distill::distill_article:
+    toc: false
+    toc_depth: 2
+    fig_width: 8
+    fig_height: 5
+    # highlight: "textmate"
+    theme: "default"
+    self_contained: true
+    css: styles.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+```{r}
+# Cargar librerías necesarias
+library(htmltools)
+```
+
+
+
+
+<style> 
+.highlight-box { background-color: #f8f9fa; border-left: 5px solid #ffc107; padding: 20px; margin: 20px 0; text-align: center; font-size: 1.5em; font-weight: bold; } 
+.highlight-box ul { text-align: center; font-size: 0.9em; font-weight: normal; margin-top: 10px; list-style-type: none; padding-left: 0; } 
+.two-columns { display: flex; justify-content: space-between; margin: 10px 0; } 
+.column {   width: 48%;   text-align: left;}
+.column-left {  text-align: left; /* Alineación a la izquierda */
+    border-right: 3px solid #000; /* Línea vertical negra de 5px de grosor */
+  padding-right: 20px; /* Espacio para que el texto no toque la línea */
+   width: 48%;}
+.column-right { text-align: right; /* Alineación a la derecha */
+   width: 48%;
+   padding-left: 20px}
+
+.center-title { text-align: center; margin: 40px 0 20px 0; font-size: 1.8em; font-weight: bold; } 
+
+</style>
+
+<div class="highlight-box"> Current Activity <ul> 
+
+[2025-03: Sessió Bases de dades en REDCAP per infermeria](https://github.com/uebvhir/seminars/raw/master/Bases_de_dades_Infermeria_v2.pdf)
+
+</ul> </div><div class="two-columns">
+
+<div class="column-left" style="font-size: 15px;"> 
+
+### Past Courses 
+
+**2023** 
+
+ [Bioinformatics course for Biomedical Research. VHIR ](https://uebvhir.github.io/Course_Bioinformatics_2023.html) 
+
+ [Basic Course of Data Analysis with STATA. PSPV ](https://uebvhir.github.io/Course_Basic_data_analysis_STATA_PV_2023.html) 
+ 
+ [Basic Statistics for Biomedical Research. PreDocs VHIR ](https://uebvhir.github.io/Course_Basic_Statistics_VHIR_2023.html)
+
+**2022** 
+
+ [Basic Statistics for Biomedical Research. VHIR ](https://uebvhir.github.io/Course_Basic_Statistics_VHIR_2022.html) 
+ 
+ [Bioinformatics course for Biomedical Research. VHIR ](https://uebvhir.github.io/Course_Bioinformatics_2022.html) 
+
+**2021** 
+
+ [Bioinformatics course for Biomedical Research. VHIR ](https://uebvhir.github.io/Course_Bioinformatics_2021.html) 
+ 
+ [Basic Statistics for Biomedical Research. CSAPG 2021](https://uebvhir.github.io/Course_StatisticsR_2021-Garraf.html)
+ 
+ [Basic Statistics for Biomedical Research. VHIO](https://uebvhir.github.io/Course_StatisticsR_2021-VHIO.html)
+ 
+ [Basic Statistics for Biomedical Research. VHIR](https://uebvhir.github.io/Course_Basic_Statistics_VHIR_2021.html)
+ 
+
+**2019-2020**
+
+ [Curso de Estadística Básica con R (PV)](https://uebvhir.github.io/Course_Basic_Statistics_VHIR_2021.html)
+  
+ [Basic Statistics for Biomedical Research - VHIO](https://uebvhir.github.io/Course_StatisticsR_2020-VHIO.html)
+  
+ [Curs de Bioinformàtica per a la Recerca Biomèdica](https://uebvhir.github.io/Course_Bioinformatics_2020.html)
+  
+ [Basic Statistics for Biomedical Research - VHIO](https://uebvhir.github.io/Course_BasicStatistics_2019-VHIO.html)
+  
+ [Basic Statistics for Biomedical Research](https://cdn.staticaly.com/gh/uebvhir/Course_Basic_Statistics_2019/master/Desc_BasicStatistics_2019.html)
+  
+ [Sessió formativa Servei Otorrino](https://cdn.staticaly.com/gh/uebvhir/Sessions-Formatives/master/20190524_Sessio_Otorrino_estbasica.pdf)
+  
+ [Bioinformatics for clinical and biomedical research](https://uebvhir.github.io/bioinformatica2018.html)
+  
+ [Data Management, Programming and Graphics with R](https://uebvhir.github.io/R-Course.html)
+  
+
+ </div> 
+
+<div class="column-right" style="font-size: 15px;"> 
+
+
+### Past Pindoles 
+
+
+
+**2022** 
+
+  [Píndola 29/04/2022: Propensity Score](https://github.com/uebvhir/Pindoles/raw/master/2022-04-29_Pindola_propensity_score.pdf) 
+
+  [Píndola 25/02/2022: Introducció a l'Estadística Bayesiana](https://github.com/uebvhir/Pindoles/raw/master/2022-02-25_Pindola_Bayesian_Statistics.pdf) 
+
+**2020** 
+
+  [Píndola 01/2020: Visualització moderna de dades](https://github.com/uebvhir/pindoles/raw/master/2020_01-Statistical_pill-Data_visualization.pdf) 
+  
+  [Píndola 16/12/2019: Ajustos per multiple testing](https://github.com/uebvhir/Pindoles/raw/master/20191216_Multiple_testing.pdf) 
+  
+**[2019](https://github.com/uebvhir/Pindoles/raw/master/PINDOLES%20_UEB%20VHIR_AAFF.pdf)**  
+
+  [28/02/2020.Busqueu la fama, i aquí és on aneu a començar a pagar: Estratègies per a la construcció de models i biomarcadors](https://github.com/uebvhir/Pindoles/raw/master/2019_02_28_Busqueu_fama_Estrategies_modelitzacio.pdf)
+  
+  [01/2020.Visualització moderna de dades](https://github.com/uebvhir/pindoles/raw/master/2020_01-Statistical_pill-Data_visualization.pdf)
+  
+  [16/12/2019. Ajustos per multiple testing Quan? per què? com?](https://github.com/uebvhir/Pindoles/raw/master/20191216_Multiple_testing.pdf)
+  
+  [21/10/2019. Sobre correlació i associació](https://github.com/uebvhir/Pindoles/raw/master/20191021_Correlation_and_Association.pdf)
+  
+  [27/09/2019. Odds-ratio, riscos relatius, riscos absoluts....Endreçant les idees](https://github.com/uebvhir/Pindoles/raw/master/20190927_RR_OR_Endrecant_les_idees.pdf)
+  
+  [28/06/2019. La crisi de la significació estadística: què diuen i què no diuen els p-valors](https://github.com/uebvhir/Pindoles/raw/master/20190628_La_crisi_de_la_significacio.pdf)
+  
+  [26/04/2019.Us de REDCap per a la recollida i tractament de dades en la Recerca al Campus de Vall d’Hebron](https://github.com/uebvhir/Pindoles/raw/master/Pindola_260419_Recap/Pindola_REDCap.pdf)
+  
+  
+  
+  </div> </div><div class="center-title"> More Teaching </div>
+
+### Seminars & Special Sessions
+
+[Sample size in animal studies - CEEA 29/11/2023](https://github.com/uebvhir/seminars/raw/master/sample_size_in_animals_CEEA.pdf)
+
+[How to set up a container using DOCKER - HUB seminar 23/11/2023](https://github.com/uebvhir/seminars/raw/master/CONTAINER_COURSE.pdf)
+
+
+
+
