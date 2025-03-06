@@ -16,7 +16,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ```
 
-<i class="fas fa-user"></i>
+
 
 # Statistics and Bioinformatics Unit
 
@@ -27,7 +27,7 @@ The Statistics and Bioinformatics Unit (UEB) was set up in 2008, as part of the 
 <!-- Puedes acceder a las siguientes secciones haciendo clic en los botones a continuación: -->
 
 
-<a href="teaching_new_v2.html" target="_blank" class="button-custom">Teaching</a> <a href="https://ueb-vhir.shinyapps.io/zz_dashboard/"  target="_blank" class="button-custom">Shiny.app</a> <a href="https://uebvhir.github.io/teaching" target="_blank" class="button-custom">Manuals</a>
+<a href="teaching_new_v2.html" target="_blank" class="button-custom">Teaching</a> <a href="https://ueb-vhir.shinyapps.io/zz_dashboard/"  target="_blank" class="button-custom">UEB shiny demos</a> <a href="https://uebvhir.github.io/teaching" target="_blank" class="button-custom">Manuals</a>
 
 
 # Service Request
