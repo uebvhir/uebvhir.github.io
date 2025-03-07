@@ -21,7 +21,7 @@
       "author": [],
       "date": "`r Sys.Date()`",
       "contents": "\r\n",
-      "last_modified": "2025-03-07T07:21:58+01:00"
+      "last_modified": "2025-03-07T07:31:39+01:00"
     },
     {
       "path": "teaching.html",
@@ -35,10 +35,11 @@
     {
       "path": "uebnet.html",
       "title": "UEBnet",
+      "description": "This space is dedicated to UEB's technical team. Here, you'll find resources, updates, and tools designed to support your work and collaboration.",
       "author": [],
       "date": "`r Sys.Date()`",
-      "contents": "\r\n\r\nR_UEB_preproces\r\n\r\n\r\n\r\n",
-      "last_modified": "2025-03-06T12:35:11+01:00"
+      "contents": "\r\n\r\nFirst steps\r\nPrimer estudi estadístic: Pas a pas preprocessat de dades\r\n\r\n\r\n\r\n\r\n",
+      "last_modified": "2025-03-07T07:34:41+01:00"
     }
   ],
   "collections": []

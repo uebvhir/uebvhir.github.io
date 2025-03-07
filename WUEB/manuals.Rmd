@@ -34,7 +34,9 @@ output:
 
 </style>
 
-</ul> </div><div class="two-columns">
+</ul> </div>
+
+<div class="two-columns">
 
 <div class="column-left" style="font-size: 15px;"> 
 
