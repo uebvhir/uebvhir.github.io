@@ -19,6 +19,8 @@ navbar:
       href: manuals.html
     - text: "UEBnet"
       href: uebnet.html
+    # - text: "Indicadors"
+    #   href: Dashboard_Indicadors_UEB.html
     - text: "About"
       href: about.html
   right:

@@ -6,6 +6,8 @@ css: styles.css
 theme:
   primary-color: "#993489"
   background-color: "#FFFFFF"
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r setup, include=FALSE}
@@ -13,6 +15,15 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Learn more about creating websites with Distill at:
 # https://rstudio.github.io/distill/website.html
+
+render = FALSE
+
+if(render)  rmarkdown::render("../../../Indicadors/Dashboard_Indicadors_UEB/Dashboard_Indicadors_UEB.Rmd")
+
+# file.copy(from = "../../../Indicadors/Dashboard_Indicadors_UEB/Dashboard_Indicadors_UEB.html", 
+#           to = "docs/Dashboard_Indicadors_UEB.html",overwrite = T)
+
+
 
 ```
 

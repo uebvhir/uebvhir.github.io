@@ -1,0 +1,716 @@
+---
+title: "Indicadors UEB"
+# author: UEB
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+    logo: "images/Logo_VHIR_HUVH_blanco_petit.png"
+    # theme: journal
+    css: Rcode/styles.css
+    # social: menu
+    source_code: embed
+runtime: shiny
+editor_options: 
+  chunk_output_type: console
+---
+
+
+```{r, message=FALSE}
+library(pacman)
+p_load(devtools)
+require(anaStatsUEB)
+# require(mmotaF)
+
+pacman::p_load(shiny, shinydashboard,DT,shinyjs,sodium)
+```
+
+```{r, message=FALSE}
+pacman::p_load("getPass")
+#pw <- getPass(msg = "Enter the Password, please!")
+```
+
+
+```{r setup, include=FALSE}
+pacman::p_load(flexdashboard,rio,lubridate,magrittr,dplyr,ggthemes)
+```
+
+```{r lecturadades}
+##################
+## DADES ACTIVITAT SERVEIS (Gestor UEB)
+# !!!!!!!!!!!! ABANS DE LLEGIR LES DADES AMB R, CAL SELECCIONAR I ELIMINAR TOTES LES FILES Y COLUMNES BUIDES, SI NO, DONARÁ PROBLEMES DE MEMORIA  !!!!!!!!!!!!!!!!!
+##################
+fitxers <- paste0("dades/",grep("ASPxGridViewAll", list.files("dades"), fixed = T, value = T))
+file_loc <- fitxers[order(file.info(fitxers)$mtime, decreasing = TRUE)][1]
+
+
+
+dat_serv_a <- import(file_loc )
+dat_serv_a$TIPUSSOLICITUD[dat_serv_a$TIPUSSOLICITUD == "Bioinformàtica"] <- "Estudi Bioinformàtica"
+dat_serv_a_orig <- dat_serv_a
+
+##################
+# DADES ACTIVITAT CURSOS
+##################
+dat_curs_a <- import("dades/UEB_Cursos_activitat.xls")
+
+##################
+# DADES QUALITAT SERVEIS
+##################
+source("EnquestaDeSatisfacci_R_2019-06-26_1147.r")
+dat_serv_q <- data
+names(dat_serv_q) <- gsub("ï..","",names(dat_serv_q))
+dat_serv_q_orig <- data
+rm(data)
+
+
+##################
+# DADES QUALITAT CURSOS
+##################
+## les dades s'han d'exportar com ueb.admin
+source("EnquestaCursosUEB_R_2019-02-26_1103.r", encoding = "UTF8")
+dat_curs_q <- data
+dat_curs_q_orig <- data
+rm(data)
+load("dades/tabPiv_2016_2018.Rda")
+
+```
+
+```{r netejadadesSERVEISactivitat}
+
+dat_serv_a$ID <- paste0(dat_serv_a$ANYSERVEI,".",dat_serv_a$NUMSERVEI)
+
+yr <- max(dat_serv_a$ANYSERVEI)
+
+## variables factor
+
+# variables data a data
+var_data <- grep("DATA", names(dat_serv_a), value = T)
+# dat_serv_a[,var_data] <- lapply(dat_serv_a[,var_data], function(x) as.Date(x, format = "%Y-%m-%d" ))
+dat_serv_a[,var_data] <- lapply(dat_serv_a[,var_data], function(x) as.Date(x, origin = "1899-12-30"))
+
+dat_serv_a$TIPUSTARIFA <- factor(dat_serv_a$TIPUSTARIFA, 0:6, c("Interns", "Aliances", "OPIs", "Externs/empreses", "Estructura", "VHIO", "ARO"))
+
+dat_serv_a$DATA_PAS_A_FACTURACIO[dat_serv_a$ID == "2019.1405"] <- "2019-04-01"
+dat_serv_a$DATA_PAS_A_FACTURACIO[dat_serv_a$ID == "2018.4931"] <- "2019-01-29"
+
+dat_serv_a$DATA_MAXIMA_RECOLLIDA <- apply(dat_serv_a[,var_data] ,1, max, na.rm = T )
+
+dat_serv_a$DATA_FACT_LAST <- apply(dat_serv_a[,c("DATA_MAXIMA_RECOLLIDA", "DATA_PAS_A_FACTURACIO")] ,1, min, na.rm = T )
+##################
+#### Noves variables
+##################
+
+dat_serv_a$FINALITZATS <- ifelse(grepl("Finalitz|En Fact",dat_serv_a$SITUACIO) & dat_serv_a$TIPUSSOLICITUD != "Consulta" & dat_serv_a$RESPOSTAPROPOSTA == "Acceptada", "Facturat","Altres" ) 
+# View(dat_serv_a[,c("SITUACIO","TIPUSSOLICITUD","FINALITZATS")])
+
+##################
+#### Eliminem registres Descartats
+##################
+
+dat_serv_a <- dat_serv_a[-grep("Descartat", dat_serv_a$SITUACIO),]
+
+## dat_serv_a all, base de dades amb tots els registres correctes i amb totes les variables
+dat_serv_a_all <- dat_serv_a
+
+##################
+
+
+##################
+### Eliminem variables amb dades personals o no analitzables
+##################
+dat_serv_a <- dat_serv_a[,!names(dat_serv_a) %in% c("NIFSOLICITANT", "EMAILSOLICITANT", "TELEFONSOLICITANT", "SERVEISOLICITANT", "DESCRIPCIOSOLICITANT", "REFERENCIAESTUDI","OBJECTIUGENERAL", "INICI", "FINALITACIO", "TITOL","SERVEIALTRES","OBSERVACIONS", "NIF_AUTORITZAT", "REFERENCIA","RESPONSABLE", "CODICLIENTEXTERN", "EMPRESA")]
+
+tcd_serv_a <- c("DATAFI","DATAINICI", "DATA_PAS_A_FACTURACIO", "DATA_FACT_LAST")
+
+for (i in seq_along(tcd_serv_a)) {
+  namevar <- tcd_serv_a[i]
+  dat_serv_a[,paste0(namevar,"_qtm")] <- paste0("Q",quarter(dat_serv_a[,namevar]))
+  dat_serv_a[,paste0(namevar,"_year")] <- year(dat_serv_a[,namevar] )
+}
+
+
+
+
+
+```
+
+```{r netejadadesCURSOSactivitat}
+dat_curs_a$Year <- factor(dat_curs_a$Year)
+```
+
+
+```{r netejadadesSERVEISqualitat}
+dat_serv_q$answer_date <- as.Date(dat_serv_q$answer_date, format = "%Y-%m-%d") 
+
+dat_serv_q[,"answer_date_qtm"] <- paste0("Q",quarter(dat_serv_q[,"answer_date"]))
+dat_serv_q[,"answer_date_year"] <- year(dat_serv_q[,"answer_date"] )
+
+```
+
+```{r netejadadesCURSOSqualitat}
+dat_curs_q$fecha <- as.Date(dat_curs_q$fecha, format = "%Y-%m-%d") 
+
+dat_curs_q[,"answer_date_qtm"] <- quarter(dat_curs_q[,"fecha"])
+dat_curs_q[,"answer_date_year"] <- year(dat_curs_q[,"fecha"] )
+```
+
+
+```{r}
+pacman::p_load("plotly")
+
+df_ini <- dat_serv_a %>% filter(ANYSERVEI == yr)
+df_ini <- df_ini[,c("TIPUSSOLICITUD", "TIPUSPLATAFORMA")]  
+  df_p <- df_ini %>% 
+    count( eval(parse(text = "TIPUSSOLICITUD")), TIPUSPLATAFORMA) %>%
+    mutate(pct = n / sum(n),
+           pct_label = scales::percent(pct))
+  names(df_p)[grep("eval",names(df_p))] <- "TIPUSSOLICITUD"
+
+  
+  
+  percentData <- df_ini %>% 
+    group_by(eval(parse(text = "TIPUSSOLICITUD"))) %>% count(TIPUSPLATAFORMA) %>%
+    mutate(ratio_sel = scales::percent(n/sum(n))) %>% 
+    mutate(msg = paste(n,"(", ratio_sel, ") "))
+    
+  names(percentData)[grep("eval",names(percentData))] <- "TIPUSSOLICITUD"
+  
+  
+  df_p <- left_join(df_p,percentData)
+    df_p$TIPUSSOLICITUD <- factor(df_p$TIPUSSOLICITUD)
+    # st <- sort(table(df_p$TIPUSSOLICITUD))
+df_p$TIPUSSOLICITUD <- factor_ueb(df_p$TIPUSSOLICITUD,labs = unlist(unique(df_p %>% arrange(desc(n)) %>% select(TIPUSSOLICITUD))))
+  
+  
+  p <- ggplot(df_p, aes_string(x = "TIPUSSOLICITUD", fill = "TIPUSPLATAFORMA", y = "pct", text = "msg")) +
+    geom_col() +
+    # scale_x_discrete(labels =c("NA" = "Missing","[ 0.49, 1.00)" = "A", "[ 1.00,10.00)" = "B", "[10.00,18.00)" = "C", "[18.00,84.61]" = "D")) +
+    scale_y_continuous(labels = scales::percent) +
+    labs(fill = Hmisc::label(dat_serv_a$TIPUSPLATAFORMA),
+         title =  Hmisc::label(dat_serv_a[,"TIPUSSOLICITUD"]),
+         y = "Percentage", x = "" ) 
+
+# Codi per trobar el numero d'estudis de cada tipus, diferenciar-los i poder fer els gauges del percentatge d'estudis de cada tipus 
+noms <- c("Estudi Estadistica","Estudi Bioinformàtica","Assaig Clínic", "Consulta", "RED Cap","Altres")
+
+o <- tapply(df_p$n, df_p$TIPUSSOLICITUD, sum)
+
+n_cons <- o["Consulta"]
+n_red <- o["RED Cap"]
+n_estu_e <- o["Estudi Estadistica"]
+n_estu_b <- o["Estudi Bioinformàtica"]
+n_ass <- o["Assaig Clínic"]
+n_al <- o["Altres"]
+#n_estu <- sum(o["Estudi Estadistica"], o["Estudi Bioinformàtica"], o["Assaig Clínic"], o["Altres"], na.rm = T)
+
+dd <- t(cbind(n_estu_e, n_estu_b, n_ass, n_cons, n_red, n_al))
+colnames(dd) <- "N"
+
+dd <- as.data.frame(dd)
+dd$pct <- dd$N/sum(dd$N,na.rm = T)
+dd$pct_label <- scales::percent(dd$pct)
+
+```
+
+
+# General
+
+## {data-width=150}
+
+```{r, child="column_info.rmd"}
+```
+
+
+## {data-width=500} {.tabset}
+
+
+
+```{r, message=FALSE, results='asis'}
+
+pacman::p_load("plotly")
+yrs <- unique(dat_serv_a$ANYSERVEI)
+yrs <- yrs[!yrs %in% c(2017, 2016)]
+
+for (i in seq_along(yrs) ){
+
+cat(paste0("\n### Any",yrs[i]," \n\n"))
+
+  
+df_ini <- dat_serv_a %>% filter(ANYSERVEI == yrs[i] & !is.na(TIPUSPLATAFORMA))
+df_ini <- df_ini[,c("TIPUSSOLICITUD", "TIPUSPLATAFORMA")]  
+  df_p <- df_ini %>% 
+    count( eval(parse(text = "TIPUSSOLICITUD")), TIPUSPLATAFORMA) %>%
+    mutate(pct = n / sum(n),
+           pct_label = scales::percent(pct))
+  names(df_p)[grep("eval",names(df_p))] <- "TIPUSSOLICITUD"
+
+  
+  
+  percentData <- df_ini %>% 
+    group_by(eval(parse(text = "TIPUSSOLICITUD"))) %>% count(TIPUSPLATAFORMA) %>%
+    mutate(ratio_sel = scales::percent(n/sum(n))) %>% 
+    mutate(msg = paste(n,"(", ratio_sel, ") "))
+    
+  names(percentData)[grep("eval",names(percentData))] <- "TIPUSSOLICITUD"
+  
+  
+  df_p <- left_join(df_p,percentData)
+    df_p$TIPUSSOLICITUD <- factor(df_p$TIPUSSOLICITUD)
+    # st <- sort(table(df_p$TIPUSSOLICITUD))
+df_p$TIPUSSOLICITUD <- factor_ueb(df_p$TIPUSSOLICITUD,labs = unlist(unique(df_p %>% arrange(desc(n)) %>% select(TIPUSSOLICITUD))))
+  
+  
+pl <- ggplot(df_p, aes(x = TIPUSSOLICITUD, fill = TIPUSPLATAFORMA, y = pct, text = msg)) +
+  geom_col() +
+    # scale_x_discrete(labels =c("NA" = "Missing","[ 0.49, 1.00)" = "A", "[ 1.00,10.00)" = "B", "[10.00,18.00)" = "C", "[18.00,84.61]" = "D")) +
+  scale_y_continuous(labels = scales::percent) +
+  # scale_fill_manual(values = gg_color(2))+
+  theme(axis.text.x = element_text(size = 10, angle = 90, vjust = 0.3, 
+                                   hjust = 1, margin = margin(3,0,0,0))) +
+  geom_text( aes(label = msg), size = 3, position = position_stack(vjust = 0.5)) +
+  labs(fill = Hmisc::label(dat_serv_a$TIPUSPLATAFORMA),
+         title =  Hmisc::label(dat_serv_a[,"TIPUSSOLICITUD"]),
+         y = "Percentage", x = "" ) +
+  ggtitle("Noves sol·licituts") +
+  theme( axis.text.x = element_text(angle = 45) )
+print(pl)
+cat("\n \n")
+}
+  
+```
+
+
+## {data-width=450} {.tabset}
+
+
+```{r results='asis'}
+# Aquest codi serveix per crear les pestanyes de solicituds
+colores <- c("#00BFC4", "#F8766D", "#B79F00", "#00BA38" , "#619CFF", "#F564E3")
+
+res <- vector(mode = "list")
+for (i in seq_along(noms)) {
+  res[[i]] <- knitr::knit_child("page_info_solicitud.Rmd", quiet = TRUE, envir = environment())
+}
+
+cat(unlist(res), sep = '\n')
+```
+
+
+# Activitat
+
+## {data-width=150}
+
+```{r, child="column_info.rmd"}
+```
+
+
+## {data-width=500} {.tabset}
+
+### Serveis
+
+```{r, fig.height=6,fig.width=5}
+library(kableExtra)
+library(DT)
+library(tidyr)
+library(gt)
+library(paletteer)
+count_facts_19_21 <- dat_serv_a[which(dat_serv_a$FINALITZATS == "Facturat" & 
+                   dat_serv_a$DATA_FACT_LAST_year > 2018), 
+           c("ID",  "DATA_FACT_LAST_qtm", "DATA_FACT_LAST_year")]
+
+tab_freq_19_21 <- as.data.frame(table(count_facts_19_21$DATA_FACT_LAST_qtm, count_facts_19_21$DATA_FACT_LAST_year))
+tab_freq_19_21 <- rename(tab_freq_19_21, c(Trimestre = "Var1", Any = "Var2"))
+
+## Importamos la tabla de excel con los datos del 2016 al 2018
+tab_freq_16_18 <- import("dades/dades_anys_anteriors.xlsx")
+
+## Juntamos las dos tablas
+tab_freq_16_21 <- rbind(tab_freq_16_18, tab_freq_19_21)
+tab_freq_16_21 <- rename(tab_freq_16_21, c(Frequencia = "Freq"))
+tab_freq_16_21 %<>% mutate_at(c("Trimestre","Any"), as.factor)
+
+tab_freq_16_21$Trimestre <- factor(tab_freq_16_21$Trimestre, levels = c("Q4", "Q3", "Q2", "Q1"))
+## Hacemos el grafico
+
+ggplot(tab_freq_16_21, aes(Any, Frequencia, fill = Trimestre)) + 
+  geom_bar(stat = "identity", position = "fill") +
+  scale_y_continuous(labels = scales::percent) +
+  scale_fill_manual(values = paletteer_c("ggthemes::Blue-Green Sequential", 4)) +
+  labs(title = "Serveis facturats per trimestres i anys", y = "Percentatge", x = "Any")
+
+
+```
+
+### Consultes
+
+```{r, fig.height=6,fig.width=5}
+count_con_19_21 <- dat_serv_a[which(dat_serv_a$TIPUSSOLICITUD == "Consulta" & 
+                                    dat_serv_a$DATA_FACT_LAST_year > 2018) , 
+                            c("ID",  "DATA_FACT_LAST_qtm", "DATA_FACT_LAST_year")]
+
+tab_con_19_21 <- as.data.frame(table(count_con_19_21$DATA_FACT_LAST_qtm, count_con_19_21$DATA_FACT_LAST_year))
+tab_con_19_21 <- rename(tab_con_19_21, c(Trimestre = "Var1", Any = "Var2", Frequencia = "Freq"))
+
+
+## Importamos la tabla de excel con los datos del 2016 al 2018
+tab_con_16_18 <- import("dades/dades_consultes_16_18.xlsx")
+
+
+## Juntamos las dos tablas
+tab_con_16_21 <- rbind(tab_con_16_18, tab_con_19_21)
+
+tab_con_16_21$Frequencia <- as.numeric(tab_con_16_21$Frequencia)
+tab_con_16_21$Trimestre <- as.factor(tab_con_16_21$Trimestre)
+tab_con_16_21$Trimestre <- factor(tab_con_16_21$Trimestre, levels = c("Q4", "Q3", "Q2", "Q1"))
+
+## Hacemos el grafico
+
+ggplot(tab_con_16_21, aes(Any, Frequencia, fill = Trimestre)) + 
+  geom_bar(stat = "identity", position = "fill") +
+  scale_y_continuous(labels = scales::percent) +
+  scale_fill_manual(values = paletteer_c("ggthemes::Blue-Green Sequential", 4)) +
+  labs(title = "Número de consultes per trimestres i anys", y = "Percentatge", x = "Any")
+
+```
+
+
+
+
+
+## {data-width=150} {.tabset}
+
+### Taules
+
+
+```{r results='asis'}
+
+
+## Hacemos la tabla
+
+# Pasem a factor per poder fer levels
+tab_freq_16_21$Any <- as.factor(tab_freq_16_21$Any)
+tab_freq_16_21$Trimestre <- as.factor(tab_freq_16_21$Trimestre)
+
+# Canviem els noms
+t1 <- as.data.frame(matrix(tab_freq_16_21$Frequencia, ncol = 4, byrow = T))
+trim <- levels(tab_freq_16_21$Trimestre)
+names(t1) <- trim
+
+# Afegim columna total i any
+Total <- rowSums(t1)
+
+Any <- levels(tab_freq_16_21$Any)
+t1 <- cbind(Any, t1, Total)
+
+kable_ueb(t1, caption = "Serveis facturats per trimestres i anys", col.background = "#264EFA")
+```
+
+<br>
+
+```{r results='asis'}
+
+## Hacemos la tabla
+
+# Pasem a factor per poder fer levels
+tab_con_16_21$Any <- as.factor(tab_con_16_21$Any)
+tab_con_16_21$Trimestre <- as.factor(tab_con_16_21$Trimestre)
+
+# Canviem els noms
+t1 <- as.data.frame(matrix(tab_con_16_21$Frequencia, ncol = 4, byrow = T))
+trim <- levels(tab_con_16_21$Trimestre)
+names(t1) <- trim
+
+# Afegim columna total i any
+Total <- rowSums(t1)
+
+Any <- levels(tab_con_16_21$Any)
+t1 <- cbind(Any, t1, Total)
+
+kable_ueb(t1, caption = "Número de consultes per trimestres i anys", col.background = "#264EFA")
+```
+
+
+
+# Facturació
+## {data-width=150}
+
+```{r, child="column_info.rmd"}
+```
+
+## {data-width=500} {.tabset}
+
+### Serveis
+
+```{r}
+count_imp_19_21 <- dat_serv_a[which(dat_serv_a$FINALITZATS == "Facturat" & 
+                                    dat_serv_a$DATA_FACT_LAST_year > 2018), 
+                            c("ID",  "DATA_FACT_LAST_qtm", "DATA_FACT_LAST_year", "IMPORT")]
+
+
+add_import <- function(data){
+  # Seleccionem les variables amb les que volem treballar
+  data <- select(data, DATA_FACT_LAST_qtm, DATA_FACT_LAST_year, IMPORT)
+  
+  # Pasem a factor per poder veure els levels, i aixi saber els anys
+  data$DATA_FACT_LAST_year <- as.factor(data$DATA_FACT_LAST_year)
+  t <- levels(data$DATA_FACT_LAST_year)
+  
+  # Creem nous vectors que repetiran els trimestres, anys i import segons els anys que tinguem
+  DATA_FACT_LAST_qtm <- rep(paste("Q",1:4, sep = ''), length(t))
+  DATA_FACT_LAST_year <- rep(t, each = 4)
+  IMPORT <- rep(0, length(t)*4)
+  
+  # Creem un nou data frame amb aquestes noves files i el juntem amb l'original
+  d2 <- data.frame(DATA_FACT_LAST_qtm, DATA_FACT_LAST_year, IMPORT)
+  data <- rbind(data, d2)
+  
+  # Anem a juntar els data frames per obtenir el tab
+  x2 <- data.frame()
+  for (i in 1:length(t)) {
+    x <- aggregate(IMPORT ~ DATA_FACT_LAST_qtm, subset(data, `DATA_FACT_LAST_year` == t[i]), sum)
+    x2 <- rbind(x2, x)
+  }
+  
+  # Renombrem les variables
+  x2 <- rename(x2, c(Trimestre = "DATA_FACT_LAST_qtm", Import = "IMPORT"))
+  x2$Any <- rep(t, each = 4)
+  
+  # Tornem el data frame amb anys*4 files noves iguals a zero
+  return(x2)
+}
+
+tab_imp_19_21 <- add_import(count_imp_19_21)
+
+
+
+## Importamos la tabla de excel con los datos del 2016 al 2018
+tab_imp_16_18 <- import("dades/dades_serveis_import_16_18.xlsx")
+
+## Juntamos las dos tablas
+tab_imp_16_21 <- rbind(tab_imp_16_18, tab_imp_19_21)
+tab_imp_16_21$Import <- as.numeric(tab_imp_16_21$Import)
+tab_imp_16_21$Trimestre <- as.factor(tab_imp_16_21$Trimestre)
+
+ss <- tab_imp_16_21
+
+ss$Trimestre <- factor(ss$Trimestre, levels = c("Q4", "Q3", "Q2", "Q1"))
+
+
+ss <- ss %>% group_by(Any) %>%  mutate(Import_acumulat = sum(Import))
+ss <- as.data.frame(ss)
+
+
+## Hacemos el grafico
+ggplot(ss, aes(Any, Import, fill = Trimestre)) + 
+  geom_bar(stat = "identity") +
+  scale_fill_manual(values = paletteer_c("ggthemes::Green-Gold", 4)) +
+  labs(title = "Imports facturats dels serveis per anys", y = "Import en euros", x = "Any")
+
+
+```
+
+
+### Cursos
+```{r}
+count_curs_19_21 <- dat_curs_a[, c("CURS",  "Trimestre_qtm", "Year", "Import")]
+
+count_curs_19_21 <- mutate(count_curs_19_21, Trimestre_qtm = case_when(Trimestre_qtm == 1 ~ "Q1",
+                                                                     Trimestre_qtm == 2 ~ "Q2",
+                                                                     Trimestre_qtm == 3 ~ "Q3",
+                                                                     Trimestre_qtm == 4 ~ "Q4"))
+
+count_curs_19_21 <- rename(count_curs_19_21, c(DATA_FACT_LAST_qtm = "Trimestre_qtm", DATA_FACT_LAST_year = "Year", IMPORT = "Import"))
+
+tab_imp_curs_19_21 <- add_import(count_curs_19_21)
+
+## Importamos la tabla de excel con los datos del 2016 al 2018
+tab_imp_curs_16_18 <- import("dades/dades_import_cursos_16_18.xlsx")
+#tab_imp_curs_16_18<-rename(tab_imp_curs_16_18, c(DATA_FACT_LAST_qtm = "Trimestre", DATA_FACT_LAST_year = "Any", IMPORT = "Import"))
+
+
+## Juntamos las dos tablas
+tab_imp_curs_16_21 <- rbind(tab_imp_curs_16_18, tab_imp_curs_19_21)
+tab_imp_curs_16_21$Import <- as.numeric(tab_imp_curs_16_21$Import)
+
+
+tab_imp_curs_16_21$Trimestre <- as.factor(tab_imp_curs_16_21$Trimestre)
+
+hh <- tab_imp_curs_16_21
+
+hh$Trimestre <- factor(hh$Trimestre, levels = c("Q4", "Q3", "Q2", "Q1"))
+
+hh <- hh %>% group_by(Any) %>%  mutate(Import_acumulat = sum(Import))
+hh <- as.data.frame(hh)
+
+## Hacemos el grafico
+
+ggplot(hh, aes(Any, Import, fill = Trimestre)) + 
+  geom_bar(stat = "identity") +
+  scale_fill_manual(values = paletteer_c("ggthemes::Green-Gold", 4)) +
+  labs(title = "Imports facturats dels cursos per anys", y = "Import en euros", x = "Any")
+
+```
+
+
+
+## {data-width=150} {.tabset}
+
+### Taules
+```{r results='asis'}
+
+
+## Hacemos la tabla
+
+# Pasem a factor per poder fer levels
+tab_imp_16_21$Any <- as.factor(tab_imp_16_21$Any)
+tab_imp_16_21$Trimestre <- as.factor(tab_imp_16_21$Trimestre)
+
+# Canviem els noms
+t1 <- as.data.frame(matrix(tab_imp_16_21$Import, ncol = 4, byrow = T))
+trim <- levels(tab_imp_16_21$Trimestre)
+names(t1) <- trim
+
+# Afegim columna total i any
+Total <- rowSums(t1)
+
+Any <- levels(tab_imp_16_21$Any)
+t1 <- cbind(Any, t1, Total)
+
+kable_ueb(t1, caption = "Imports facturats per trimestres i anys", col.background = "#264EFA")
+
+```
+
+<br>
+
+```{r results='asis'}
+
+## Hacemos la tabla
+
+# Pasem a factor per poder fer levels
+tab_imp_curs_16_21$Any <- as.factor(tab_imp_curs_16_21$Any)
+tab_imp_curs_16_21$Trimestre <- as.factor(tab_imp_curs_16_21$Trimestre)
+
+# Canviem els noms
+t1 <- as.data.frame(matrix(tab_imp_curs_16_21$Import, ncol = 4, byrow = T))
+trim <- levels(tab_imp_curs_16_21$Trimestre)
+names(t1) <- trim
+
+# Afegim columna total i any
+Total <- rowSums(t1)
+
+Any <- levels(tab_imp_curs_16_21$Any)
+t1 <- cbind(Any, t1, Total)
+
+kable_ueb(t1, caption = "Imports facturats dels cursos per trimestres i anys", col.background = "#264EFA")
+
+```
+
+
+```{r}
+any_opt <- unique(dat_serv_a$DATA_FACT_LAST_year)
+any_opt <- any_opt[!is.na(any_opt)]
+noms <- c("Estudi Estadistica","Estudi Bioinformàtica","RED Cap")
+
+```
+
+
+# Estudi Estadistica{data-navmenu="Seguiment Estudis"}
+
+## {data-width=150}
+
+
+
+```{r, child="column_info.rmd"}
+
+```
+
+## {data-width=500} {.tabset}
+
+```{r results='asis'}
+
+res <- vector(mode = "list")
+i = noms[1]
+for (j in seq_along(any_opt)) {
+    res[[j]] <- knitr::knit_child("page_dates_estudis.Rmd", quiet = TRUE, envir = environment())
+}
+
+cat(unlist(res), sep = '\n')
+```
+
+
+
+# Estudi Bioinformàtica{data-navmenu="Seguiment Estudis"}
+
+## {data-width=150}
+
+
+
+```{r, child="column_info.rmd"}
+
+```
+
+## {data-width=500} {.tabset}
+
+```{r results='asis'}
+
+res <- vector(mode = "list")
+i <-  noms[2]
+for (j in seq_along(any_opt)) {
+    res[[j]] <- knitr::knit_child("page_dates_estudis.Rmd", quiet = TRUE, envir = environment())
+}
+
+cat(unlist(res), sep = '\n')
+```
+
+# RED Cap{data-navmenu="Seguiment Estudis"}
+
+## {data-width=150}
+
+
+
+```{r, child="column_info.rmd"}
+
+```
+
+## {data-width=500} {.tabset}
+
+```{r results='asis'}
+
+res <- vector(mode = "list")
+i <-  noms[3]
+for (j in seq_along(any_opt)) {
+    res[[j]] <- knitr::knit_child("page_dates_estudis.Rmd", quiet = TRUE, envir = environment())
+}
+
+cat(unlist(res), sep = '\n')
+```
+
+
+# Projectes
+## {data-width=150}
+
+
+```{r, child="column_info.rmd"}
+
+```
+
+
+## {data-width=500} 
+
+### Projectes
+
+![](images/projectes.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
