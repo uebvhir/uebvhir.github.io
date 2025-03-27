@@ -36,5 +36,7 @@ output:
 
 - [Primer estudi estadístic: Pas a pas preprocessat de dades](https://www.dropbox.com/scl/fi/p89esko25eppw6aks6f1x/R_UEB_preproces.html?rlkey=7merhl607w1k911c8il6lscxm&st=brkecwky&dl=0)
 
+- [prova en QMD](https://www.dropbox.com/scl/fi/7yngd3wlxtb603w1yymb6/borrar.html?rlkey=qz70zkafyozn4menwq9xmst53&st=4q6g75ld&dl=0)
+
 
 </div>
