@@ -16,7 +16,7 @@ knitr::opts_chunk$set(echo = FALSE)
 # https://rstudio.github.io/distill/website.html  Learn more about creating websites with Distill at:
 
 render = FALSE
-if(render)  rmarkdown::render("../../../Indicadors/Dashboard_Indicadors_UEB/Dashboard_Indicadors_UEB.Rmd")
+if(render)  rmarkdown::render("../../../Indicadors/Dashboard_Indicadors_UEB/Dashboard_Indicadors_UEB.Rmd") 
 ```
 
 
