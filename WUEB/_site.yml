@@ -21,6 +21,8 @@ navbar:
       href: uebnet.html
     - text: "About"
       href: about.html
+    # - text: "Indicadors"
+    #   href: proves/Dashboard_Indicadors_UEB.html
   right:
     - icon: fab fa-github
       href: https://github.com/uebvhir
