@@ -70,7 +70,7 @@ output:
 
 ### [Statistics]()
 
-- [Vignette](manuals_docs/funcions_propies.html)
+- [Vignette](funcions_propies.html)
 
 - [mmotaF](https://github.com/miriamMota/mmotaF)
 
