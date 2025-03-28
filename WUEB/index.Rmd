@@ -22,7 +22,7 @@ if(render)  rmarkdown::render("../../../Indicadors/Dashboard_Indicadors_UEB/Dash
 
 # Statistics and Bioinformatics Unit
 
-The Statistics and Bioinformatics Unit (UEB) was set up in 2008, as part of the Scientific and Technical Support Area’s units at the Vall d’Hebron Research Institute (VHIR). Its mission is to provide expert advice, services and training for clinical and biomedical research mainly in the areas of statistics and bioinformatics.
+The Statistics and Bioinformatics Unit (UEB) was set up in 2008, as part of the Scientific and Technical Support Area’s units at the Vall d’Hebron Research Institute (VHIR). Its mission is to provide expert advice, services and training for clinical and biomedical research mainly in the areas of statistics and bioinformatics.  
 
 
 <a href="teaching.html" target="_blank" class="button-custom">Teaching</a> <a href="https://ueb-vhir.shinyapps.io/zz_dashboard/"  target="_blank" class="button-custom"> UEB Dashboard demos</a> <a href="http://uebshiny.vhir.org:3838/" target="_blank" class="button-custom">Apps</a>

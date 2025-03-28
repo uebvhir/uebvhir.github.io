@@ -1,0 +1,77 @@
+---
+title: "A Simple First Article"
+description: |
+  A new article created using the Distill format.
+author:
+  - first_name: "Joshua"
+    last_name: "Cook"
+    url: https://joshuacook.netlify.app
+    affiliation: Harvard Medical School
+    affiliation_url: https://hms.harvard.edu/
+    orcid_id: 0000-0001-9815-6879
+date: "`r Sys.Date()`"
+output: 
+  distill::distill_article:
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = "#>")
+```
+
+Distill is a publication format for scientific and technical writing, native to the web. 
+
+Learn more about using Distill for R Markdown at <https://rstudio.github.io/distill>.
+
+## Plots
+
+```{r}
+library(plotly)
+library(tidyverse)
+```
+
+```{r}
+set.seed(330)
+p <- diamonds %>%
+  sample_n(50) %>%
+  ggplot(aes(x = carat, y = depth)) +
+  geom_point(aes(color = cut, size = price), alpha = 1) +
+  theme_minimal()
+```
+
+```{r, dpi=500}
+p
+```
+
+### Interactive plots and figures
+
+```{r, fig.asp=1}
+ggplotly(p)
+```
+
+```{r}
+library(leaflet)
+leaflet() %>%
+  addTiles() %>% # Add default OpenStreetMap map tiles
+  addMarkers(lng = 174.768, lat = -36.852, popup = "The birthplace of R")
+```
+
+## Tables
+
+```{r}
+mtcars %>%
+  kableExtra::kbl(digits = 3) %>%
+  kableExtra::kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed", "responsive")
+  )
+```
+
+## Equations
+
+$$
+y \sim \mathcal{N}(\mu, \sigma) \\
+\mu = \alpha + \beta X \\
+\alpha \sim \mathcal{N}(0, 5) \\
+\beta \sim \mathcal{N}(0, 5) \\
+\sigma \sim \text{Exp}(1)
+$$
