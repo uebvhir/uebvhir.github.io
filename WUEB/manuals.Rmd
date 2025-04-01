@@ -40,10 +40,15 @@ output:
 
 <div class="column-left" style="font-size: 15px;"> 
 
+<!-- https://www.dropbox.com/work/Miriam%20%20Mota%20Foix/UEB-compartida/REDCAP/Manuals_REDCap -->
+## Modules
 
-## R Modules
+### [Redcap]()
 
-### [Statistics](https://www.dropbox.com/scl/fo/0ykc3zwtu6qov2bls0c7q/h?rlkey=n06dqathg9byqklclsb5n9knj&st=x4h6g1gi&dl=0)
+- [Manual Catala](https://www.dropbox.com/scl/fi/m6b5njxqigfvx399p1yfc/REDCap_Manual_CAT.html?rlkey=eserzhapforbgi3c3iadccc47&st=6a0wc1dg&dl=0)
+- [Manual English](https://www.dropbox.com/scl/fi/4qrwdhrv53jaa3w1j6uve/REDCap_Manual.html?rlkey=p3e8k95ag3rwwi33umwm9qhjt&st=0mqe35cw&dl=0)
+
+### [R statistics]()
 
 - Anàlisi descriptiu
   - [Script](manuals_docs/descriptius.Rmd)
