@@ -32,7 +32,7 @@ library(htmltools)
 </style>
 
 <div class="highlight-box"> Current Activity <ul> 
-[2025-03: Sessió Bases de dades en REDCAP per infermeria](https://github.com/uebvhir/seminars/raw/master/Bases_de_dades_Infermeria_v2.pdf)
+[2025-05: Curs d’Estadística Bàsica per a la Recerca Biomèdica](https://uebvhir.github.io/Course_Basic_Statistics_VHIR_2025.html) 
 </ul> 
  
 

@@ -1,0 +1,9 @@
+.sidebar-note {
+  float: right;
+  width: 25%;
+  margin: 1em;
+  font-size: 0.9em;
+  background-color: #f4f4f4;
+  padding: 10px;
+  border-left: 3px solid #007acc;
+}
