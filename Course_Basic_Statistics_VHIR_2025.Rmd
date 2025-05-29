@@ -147,8 +147,6 @@ El curs té una durada de 20 hores i consisteix en 10 sessions de dues hores que
   
 - [Notebook](https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/Session_5-Exercises.Rmd)
 
-- [html](https://raw.githubusercontent.com/uebvhir/Course2020_Statistical-Analysis-with-R/master/Slides/Session_5-Exercises.html)
-
 - [Exercicis](https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/Session_5-Exercises.pdf)
 
     
