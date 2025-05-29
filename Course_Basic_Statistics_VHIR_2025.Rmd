@@ -64,17 +64,17 @@ El curs està organitzat conjuntament per la Unitat d'Estadística i Bioinformà
 
 - [Sessió 4.](#s4) Més manegament de dades amb R. Automatització de tasques amb scripts..
 
-- [Sessió 5.](#s5) Introducció a la inferència estadística. Intervals de confiança.
+- [Sessió 5.](#s5) Sessió presencial de pràctiques en R i resolució de dubtes
 
-- [Sessió 6.](#s6) Proves d'hipòtesis I: Conceptes bàsics
+- [Sessió 6.](#s6) Introducció a la inferència estadística. Intervals de confiança.
 
-- [Sessió 7.](#s7) Proves d'hipòtesis II: Variables quantitatives.
+- [Sessió 7.](#s7) Proves d'hipòtesis I: Conceptes bàsics
 
-- [Sessió 8.](#s8) Proves d'hipòtesis III: Variables qualitatives.
+- [Sessió 8.](#s8) Proves d'hipòtesis II: Variables quantitatives.
 
-- [Sessió 9.](#s9) Tests diagnòstics: Sensibilitat, especificitat i corbes ROC. Exercici de análisis de dades reals.
+- [Sessió 9.](#s9) Proves d'hipòtesis III: Variables qualitatives.
 
-- [Sessió 10.](#s10) I Exercici resum d’anàlisis de dades reals
+- [Sessió 10.](#s10) Exercici resum d’anàlisis de dades reals
 
 
 ## Dates i localització
@@ -141,7 +141,24 @@ El curs té una durada de 20 hores i consisteix en 10 sessions de dues hores que
 - [Horrible_base](https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/blob/master/datasets/horrible_base.csv)
 
 
-###  **Sessió 5. Introducció a la inferència estadística. Intervals de confiança** {#s5}
+
+###  **Sessió 5: Sessió presencial de pràctiques en R i resolució de dubtes.**{#s5}
+
+- [Exercici](https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/Session_5-Exercises_uni_bi.pdf)
+
+- [Exercici Rmd](https://raw.githubusercontent.com/uebvhir/Course2020_Statistical-Analysis-with-R/master/Slides/Session_5-Exercises_uni_bi.Rmd)
+
+- Datasets
+
+    - [Demora (Excel)](https://github.com/uebvhir/uebvhir.github.io/raw/master/datasets/demora.xls)
+
+    - [Demora (Stata)](https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/datasets/demora.dta)
+
+    - [Demora (csv)](https://raw.githubusercontent.com/uebvhir/Course2020_Statistical-Analysis-with-R/master/datasets/demora.csv)
+
+<!-- - [Solució exercicis](https://raw.githubusercontent.com/uebvhir/Course2020_Statistical-Analysis-with-R/master/Slides/Session_5-Exercises_uni_bi_solucion.html) -->
+
+###  **Sessió 6. Introducció a la inferència estadística. Intervals de confiança** {#s6}
 
 - [Presentació](https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/StatisticsWithR-5-Introduction_to_Statistical_Inference.pdf)
   
@@ -150,7 +167,7 @@ El curs té una durada de 20 hores i consisteix en 10 sessions de dues hores que
 - [Exercicis](https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/Session_5-Exercises.pdf)
 
     
-###  **Sessió 6. Proves d'hipòtesis I: Conceptes bàsics. Proves d'hipòtesis I** {#s6}
+###  **Sessió 7. Proves d'hipòtesis I: Conceptes bàsics. Proves d'hipòtesis I** {#s7}
 
 - [Presentació](https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/StatisticsWithR-6-Principles_of_Hypothesis_Testing.pdf)
   
@@ -159,7 +176,7 @@ El curs té una durada de 20 hores i consisteix en 10 sessions de dues hores que
 - [Questions](https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/Session_6-Exercises.Rmd.Rmd)
 
     
-###  **Sessió 7. Proves d'hipòtesis II: Variables quantitatives** {#s7}
+###  **Sessió 8. Proves d'hipòtesis II: Variables quantitatives** {#s8}
 
 - [Presentació](https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/StatisticsWithR-7-Tests_with_continuous_variables.pdf)
   
@@ -176,7 +193,7 @@ El curs té una durada de 20 hores i consisteix en 10 sessions de dues hores que
     - [Demora(Excel)](https://github.com/uebvhir/uebvhir.github.io/raw/master/datasets/demora.xls)
     
     
-###  **Sessió 8. Proves d'hipòtesis III: Variables categòriques** {#s8}
+###  **Sessió 9. Proves d'hipòtesis III: Variables categòriques** {#s9}
 
 - [Presentació](https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/StatisticsWithR-8-Testing-with-categorical-variables.pdf)
   
@@ -187,9 +204,9 @@ El curs té una durada de 20 hores i consisteix en 10 sessions de dues hores que
     - [Dades sobre relacio entre tabaquisme i cancer (csv)](https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/datasets/dadescancer.csv)
 
     
-###  **Sessió 9. Test diagnòstics: Sensibilitat, especificitat i corbes ROC** {#s9}
+<!-- ###  **Sessió 9. Test diagnòstics: Sensibilitat, especificitat i corbes ROC** {#s9} -->
 
-- [Presentació](https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/Statsistics_withR_9_Tests_diagnostics_PSPV.pdf)
+<!-- - [Presentació](https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/Statsistics_withR_9_Tests_diagnostics_PSPV.pdf) -->
   
 
 ### **Sessió 10. Exercici resum d’anàlisis de dades reals** {#s10}
