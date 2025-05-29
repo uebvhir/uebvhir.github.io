@@ -156,7 +156,7 @@ El curs té una durada de 20 hores i consisteix en 10 sessions de dues hores que
 
     - [Demora (csv)](https://raw.githubusercontent.com/uebvhir/Course2020_Statistical-Analysis-with-R/master/datasets/demora.csv)
 
-<!-- - [Solució exercicis](https://raw.githubusercontent.com/uebvhir/Course2020_Statistical-Analysis-with-R/master/Slides/Session_5-Exercises_uni_bi_solucion.html) -->
+- [Solució exercicis](https://raw.githubusercontent.com/uebvhir/Course2020_Statistical-Analysis-with-R/master/Slides/Session_5-Exercises_uni_bi_solucion.html)
 
 ###  **Sessió 6. Introducció a la inferència estadística. Intervals de confiança** {#s6}
 
