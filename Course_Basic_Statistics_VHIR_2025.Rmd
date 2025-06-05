@@ -182,15 +182,11 @@ El curs té una durada de 20 hores i consisteix en 10 sessions de dues hores que
   
 - [Notebook](https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/StatisticsWithR-7-Tests_with_continuous_variables_notebook.Rmd)
 
-- [Exercicis](https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/EBB2018_Session6y7_Exercici.pdf)
+- [Exercicis](https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/Session_7_Exercises.pdf)
 
 - Datasets
   
-    - [hta (Excel)](https://github.com/uebvhir/uebvhir.github.io/raw/master/datasets/hta.xls)
-
-    - [Diabetes (Excel)](https://github.com/uebvhir/uebvhir.github.io/raw/master/datasets/diabetes.xls)
-    
-    - [Demora(Excel)](https://github.com/uebvhir/uebvhir.github.io/raw/master/datasets/demora.xls)
+    - [data (Rda)](https://github.com/uebvhir/uebvhir.github.io/raw/master/datasets/data.Rda)
     
     
 ###  **Sessió 9. Proves d'hipòtesis III: Variables categòriques** {#s9}
