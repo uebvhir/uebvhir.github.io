@@ -173,7 +173,7 @@ El curs té una durada de 20 hores i consisteix en 10 sessions de dues hores que
   
 - [Notebook](https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/StatisticsWithR-6-Principles_of_Hypothesis_Testing.nb.Rmd)
 
-- [Questions](https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/Session_6-Exercises.Rmd.Rmd)
+- [Questions](https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/Session_6-Exercises.Rmd)
 
     
 ###  **Sessió 8. Proves d'hipòtesis II: Variables quantitatives** {#s8}
