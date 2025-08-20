@@ -173,7 +173,7 @@ El curs té una durada de 20 hores i consisteix en 10 sessions de dues hores que
   
 - [Notebook](https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/StatisticsWithR-6-Principles_of_Hypothesis_Testing.nb.Rmd)
 
-- [Questions](https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/Session_6-Exercises.Rmd.Rmd)
+- [Questions](https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/Session_6-Exercises.Rmd)
 
     
 ###  **Sessió 8. Proves d'hipòtesis II: Variables quantitatives** {#s8}
@@ -206,7 +206,7 @@ El curs té una durada de 20 hores i consisteix en 10 sessions de dues hores que
   
 
 ### **Sessió 10. Exercici resum d’anàlisis de dades reals** {#s10}
-- [Exercici Final]()
+- [Exercici Final](https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/EBB2022_Exercici.pdf)
 
 - Datasets
 
@@ -216,7 +216,7 @@ El curs té una durada de 20 hores i consisteix en 10 sessions de dues hores que
 
     - [Demora (csv)](https://raw.githubusercontent.com/uebvhir/Course2020_Statistical-Analysis-with-R/master/datasets/demora.csv)
 
-- [Solució exercicis]()
+- [Solució exercicis](https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/raw/master/Slides/EBB2022_Exercici_Solucio.pdf)
 
 ### [Datasets](https://github.com/uebvhir/Course2020_Statistical-Analysis-with-R/tree/master/datasets)
 
@@ -224,9 +224,9 @@ El curs té una durada de 20 hores i consisteix en 10 sessions de dues hores que
 
 ---
 
-## Enquesta de satisfacció del curs
+<!-- ## Enquesta de satisfacció del curs -->
 
-[Enquesta de satisfacció del curs Bioestadística 2025](https://servirredcap.vhir.org/redcap/surveys/?s=NCD4M3YACE)
+<!-- [Enquesta de satisfacció del curs Bioestadística 2025](https://servirredcap.vhir.org/redcap/surveys/?s=NCD4M3YACE) -->
 
 ## Enllaços i referències interessants
 
