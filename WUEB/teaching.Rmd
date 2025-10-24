@@ -33,6 +33,7 @@ library(htmltools)
 
 <div class="highlight-box"> Current Activity <ul> 
 [2025-05: Curs d’Estadística Bàsica per a la Recerca Biomèdica](https://uebvhir.github.io/Course_Basic_Statistics_VHIR_2025.html) 
+[205-010: Curs basic de anaàlisi de dades amb STATA. PSPV ](https://uebvhir.github.io/Course_Basic_data_analysis_STATA_PV_2023.html) 
 </ul> 
  
 
@@ -134,5 +135,6 @@ library(htmltools)
 [How to set up a container using DOCKER - HUB seminar 23/11/2023](https://github.com/uebvhir/seminars/raw/master/CONTAINER_COURSE.pdf)
 
  </div><
+
 
 
