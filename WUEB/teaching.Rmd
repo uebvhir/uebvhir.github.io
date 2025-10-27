@@ -134,6 +134,8 @@ library(htmltools)
 
 [How to set up a container using DOCKER - HUB seminar 23/11/2023](https://github.com/uebvhir/seminars/raw/master/CONTAINER_COURSE.pdf)
 
+[From microarrays to disease biomarker discovery - VHIR webinar 29/06/2021](https://github.com/uebvhir/Seminars/raw/master/20210629_Webinar_Microarrays_UEBservices_3.pdf)
+
 [Steps in single cell data analysis - VHIR seminar 18/03/2025](https://github.com/uebvhir/Seminars/raw/master/seminari_SingleCell_BD_18032025_MF.pdf)
  
  </div><
