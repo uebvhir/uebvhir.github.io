@@ -138,7 +138,7 @@ library(htmltools)
 
 [Steps in single cell data analysis - VHIR seminar 18/03/2025](https://github.com/uebvhir/Seminars/raw/master/seminari_SingleCell_BD_18032025_MF.pdf)
  
- </div><
+ </div>
 
 
 
